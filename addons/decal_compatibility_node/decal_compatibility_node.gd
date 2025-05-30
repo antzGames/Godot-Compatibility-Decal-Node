@@ -104,8 +104,8 @@ func _validate_property(property: Dictionary) -> void:
 		property.hint_string= "0.001,1024.0,0.001"
 	elif property.name in ["transparency","mesh","skin", "skeleton", "Skeleton", "material_override", "material_overlay", "lod_bias"]:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
-	elif property.name.begins_with("visibility_"):
-		property.usage = PROPERTY_USAGE_NO_EDITOR
+	#elif property.name.begins_with("visibility_"):
+		#property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name.begins_with("gi_"):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name.begins_with("cast_"):
