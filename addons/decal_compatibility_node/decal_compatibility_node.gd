@@ -6,19 +6,9 @@ class_name DecalCompatibility
 	set(value):
 		if not mesh:
 			create_mesh()
-		mesh.size.x = value.x
-		mesh.size.y = value.y
-		mesh.size.z = value.z
 		size = value
 		update_shader()
 		#print(mesh.size)
-
-#enum AXIS_TYPE {
-	#Y_AXIS, ## Up and down, use for floors
-	#X_AXIS, ## left and right
-	#Z_AXIS} ## forward, back
-### Y_AXIS is the default
-#@export var axis: AXIS_TYPE = AXIS_TYPE.Y_AXIS
 
 @export_group("Textures")
 @export var albedo: Texture2D:
@@ -56,7 +46,7 @@ class_name DecalCompatibility
 		mesh.material.set_shader_parameter("albedo_mix", albedo_mix)
 
 @export_group("Vertical Fade")
-@export var enable_fade: bool = false:
+@export var enable_fade: bool = true:
 	set(value):
 		if not mesh:
 			create_mesh()
@@ -88,8 +78,13 @@ func create_mesh():
 	update_shader()
 
 func update_shader():
+	mesh.size.x = size.x
+	mesh.size.y = size.y
+	mesh.size.z = size.z
 	mesh.material.set_shader_parameter("scale_mod", Vector3(1/size.x,1/size.y,1/size.z))
 	mesh.material.set_shader_parameter("cube_half_size", Vector3(size.x/2,size.y/2,size.z/2))
+	mesh.material.set_shader_parameter("enable_y_fade", enable_fade)
+	
 
 # @tool methods
 

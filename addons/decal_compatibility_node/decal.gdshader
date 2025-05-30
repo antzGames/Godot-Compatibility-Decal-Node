@@ -1,13 +1,13 @@
 shader_type spatial;
 //render_mode world_vertex_coords, blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
-render_mode world_vertex_coords, unshaded, cull_disabled, depth_test_disabled;
+render_mode unshaded, cull_front, depth_test_disabled;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture ,filter_linear_mipmap;
 
-uniform sampler2D albedo : hint_default_white, repeat_disable;
-//uniform sampler2D normal : source_color, hint_normal, repeat_disable;
-//uniform sampler2D roughness : source_color, hint_default_white, repeat_disable;
-//uniform sampler2D emission : source_color, hint_default_black, repeat_disable;
+uniform sampler2D albedo : hint_default_white, repeat_disable, filter_linear_mipmap_anisotropic;
+//uniform sampler2D normal : source_color, hint_normal, repeat_disable, filter_linear_mipmap_anisotropic;
+//uniform sampler2D roughness : source_color, hint_default_white, repeat_disable, filter_linear_mipmap_anisotropic;
+//uniform sampler2D emission : source_color, hint_default_black, repeat_disable, filter_linear_mipmap_anisotropic;
 
 uniform float albedo_mix : hint_range(0.0, 1.0, 0.1) = 1.0;
 //uniform float emission_energy : hint_range(0.0, 30, 0.1) = 1.0;
@@ -24,7 +24,6 @@ uniform bool enable_y_fade = true; // Toggle for fade effect
 uniform float fade_start = 0.3; // Where fading begins (0-1)
 uniform float fade_end = 0.7;   // Where fading ends (0-1)
 uniform float fade_power = 1.0; // Curve sharpness
-uniform float FOV : hint_range(20, 120) = 75; // FOV handling from the first shader
 
 void vertex(){
 	INV_MODEL_MATRIX = inverse(MODEL_MATRIX);

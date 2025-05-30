@@ -80,7 +80,6 @@ shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
-shader_parameter/FOV = 75.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_3xrpy"]
 material = SubResource("ShaderMaterial_wppxa")
@@ -94,11 +93,10 @@ shader_parameter/albedo_mix = 1.0
 shader_parameter/modulate = Color(1, 1, 1, 1)
 shader_parameter/scale_mod = Vector3(0.166667, 0.666667, 0.166667)
 shader_parameter/cube_half_size = Vector3(3, 0.75, 3)
-shader_parameter/enable_y_fade = false
+shader_parameter/enable_y_fade = true
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
-shader_parameter/FOV = 75.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_wppxa"]
 material = SubResource("ShaderMaterial_umdxf")
@@ -116,7 +114,6 @@ shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
-shader_parameter/FOV = 68.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_kdopp"]
 material = SubResource("ShaderMaterial_6kxbp")
@@ -128,14 +125,13 @@ render_priority = 0
 shader = ExtResource("1_umdxf")
 shader_parameter/albedo = ExtResource("8_kdopp")
 shader_parameter/albedo_mix = 0.9
-shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/modulate = Color(1, 1, 1, 0.439216)
 shader_parameter/scale_mod = Vector3(0.15625, 10, 0.277778)
 shader_parameter/cube_half_size = Vector3(3.2, 0.05, 1.8)
 shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
-shader_parameter/FOV = 75.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_u0d3p"]
 material = SubResource("ShaderMaterial_5flai")
@@ -168,7 +164,7 @@ skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
 [node name="Sphere" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49757, -0.687609, -0.600109)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49757, -0.226564, -0.600109)
 mesh = SubResource("SphereMesh_64soo")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
@@ -220,10 +216,11 @@ size = Vector3(2, 1, 2)
 albedo = ExtResource("4_3xrpy")
 modulate = Color(1, 1, 1, 0.788235)
 albedo_mix = 0.7
+enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="SlimOnFloor" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56169, 0.168449, -2.50734)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50498, 0.1085, -2.1277)
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_wppxa")
 Skeleton = null
@@ -245,6 +242,7 @@ size = Vector3(1, 0.1, 1)
 albedo = ExtResource("7_6kxbp")
 modulate = Color(1, 1, 1, 0.905882)
 albedo_mix = 0.9
+enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="BulletHole2" type="MeshInstance3D" parent="CompatibilityDecals"]
@@ -258,6 +256,7 @@ size = Vector3(1, 0.1, 1)
 albedo = ExtResource("7_6kxbp")
 modulate = Color(1, 1, 1, 0.905882)
 albedo_mix = 0.9
+enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="BulletHole3" type="MeshInstance3D" parent="CompatibilityDecals"]
@@ -271,6 +270,7 @@ size = Vector3(1, 0.1, 1)
 albedo = ExtResource("7_6kxbp")
 modulate = Color(1, 1, 1, 0.905882)
 albedo_mix = 0.9
+enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="MyLogo" type="MeshInstance3D" parent="CompatibilityDecals"]
@@ -283,4 +283,19 @@ script = ExtResource("3_umdxf")
 size = Vector3(6.4, 0.1, 3.6)
 albedo = ExtResource("8_kdopp")
 albedo_mix = 0.9
+enable_fade = false
+metadata/_custom_type_script = "uid://feckn7f3pmud"
+
+[node name="MyLogo2" type="MeshInstance3D" parent="CompatibilityDecals"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.27967, -0.543199, 7.16145)
+gi_lightmap_scale = 0
+mesh = SubResource("BoxMesh_u0d3p")
+Skeleton = null
+skeleton = NodePath("../..")
+script = ExtResource("3_umdxf")
+size = Vector3(6.4, 0.1, 3.6)
+albedo = ExtResource("8_kdopp")
+modulate = Color(1, 1, 1, 0.439216)
+albedo_mix = 0.9
+enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
