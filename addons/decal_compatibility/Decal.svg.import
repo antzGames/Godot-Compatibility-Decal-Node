@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfvtiiyj8n1su"
-path="res://.godot/imported/Decal.svg-06781d13b44296d815d771f8f594b313.ctex"
+path="res://.godot/imported/Decal.svg-3835a78f9b72e96c7dbf14b7a121392e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/decal_compatibility_node/Decal.svg"
-dest_files=["res://.godot/imported/Decal.svg-06781d13b44296d815d771f8f594b313.ctex"]
+source_file="res://addons/decal_compatibility/Decal.svg"
+dest_files=["res://.godot/imported/Decal.svg-3835a78f9b72e96c7dbf14b7a121392e.ctex"]
 
 [params]
 

@@ -11,15 +11,20 @@ config_version=5
 [application]
 
 config/name="Compatibility Decal"
-run/main_scene="res://Demo.tscn"
+run/main_scene="uid://dpfaxm0876bca"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="res://assets/loading.png"
 config/icon="res://assets/antz_512.png"
 boot_splash/minimum_display_time=500
 
+[display]
+
+window/size/always_on_top=true
+window/vsync/vsync_mode=0
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/decal_compatibility_node/plugin.cfg")
+enabled=PackedStringArray("res://addons/decal_compatibility/plugin.cfg")
 
 [rendering]
 

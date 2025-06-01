@@ -1,89 +1,101 @@
 @tool
-extends MeshInstance3D
-class_name DecalCompatibility
+extends MultiMeshInstance3D
+class_name DecalInstanceCompatibility
 
 @export var size: Vector3 = Vector3(2,2,2):
 	set(value):
-		if not mesh:
-			create_mesh()
+		if not multimesh:
+			create_multimesh()
 		size = value
 		update_shader()
-		#print(mesh.size)
+
+@export var instance_count: int = 0:
+	set(value):
+		if not multimesh:
+			create_multimesh()
+		instance_count = value
+		multimesh.instance_count = instance_count
 
 @export_group("Textures")
 @export var albedo: Texture2D:
 	set(value):
-		if not mesh:
-			create_mesh()
+		if not multimesh:
+			create_multimesh()
 		albedo = value
-		mesh.material.set_shader_parameter("albedo", albedo)
+		multimesh.mesh.material.set_shader_parameter("albedo", albedo)
 #@export var normal: Texture2D:
 	#set(value):
 		#normal = value
-		#mesh.material.set_shader_parameter("normal", normal)
+		#multimesh.mesh.material.set_shader_parameter("normal", normal)
 #@export var orm: Texture2D:
 	#set(value):
 		#orm = value
-		#mesh.material.set_shader_parameter("roughness", orm)
+		#multimesh.mesh.material.set_shader_parameter("roughness", orm)
 #@export var emission: Texture2D:
 	#set(value):
 		#emission = value
-		#mesh.material.set_shader_parameter("emission", emission)
+		#multimesh.mesh.material.set_shader_parameter("emission", emission)
 
 @export_group("Parameters")
 #@export_range(0,16,0.01) var emission_energy: float = 1.0
 @export var modulate: Color = Color.WHITE:
 	set(value):
-		if not mesh:
-			create_mesh()
+		if not multimesh:
+			create_multimesh()
 		modulate = value
-		mesh.material.set_shader_parameter("modulate", modulate)
+		multimesh.mesh.material.set_shader_parameter("modulate", modulate)
 @export_range(0,1,0.1) var albedo_mix: float = 1.0:
 	set(value):
-		if not mesh:
-			create_mesh()
+		if not multimesh:
+			create_multimesh()
 		albedo_mix = value
-		mesh.material.set_shader_parameter("albedo_mix", albedo_mix)
+		multimesh.mesh.material.set_shader_parameter("albedo_mix", albedo_mix)
 
 @export_group("Vertical Fade")
 @export var enable_fade: bool = true:
 	set(value):
-		if not mesh:
-			create_mesh()
+		if not multimesh:
+			create_multimesh()
 		enable_fade = value
-		mesh.material.set_shader_parameter("enable_y_fade", enable_fade)
+		multimesh.mesh.material.set_shader_parameter("enable_y_fade", enable_fade)
 @export_range(0,1,0.01) var fade_start: float = 0.3:
 	set(value):
-		if not mesh:
-			create_mesh()
+		if not multimesh:
+			create_multimesh()
 		fade_start = value
-		mesh.material.set_shader_parameter("fade_start", fade_start)
+		multimesh.mesh.material.set_shader_parameter("fade_start", fade_start)
 @export_range(0,1,0.01) var fade_end: float = 0.7:
 	set(value):
-		if not mesh:
-			create_mesh()
+		if not multimesh:
+			create_multimesh()
 		fade_end = value
-		mesh.material.set_shader_parameter("fade_end", fade_end)
+		multimesh.mesh.material.set_shader_parameter("fade_end", fade_end)
 @export_range(0.01,5,0.01) var fade_power: float = 1.0:
 	set(value):
-		if not mesh:
-			create_mesh()
+		if not multimesh:
+			create_multimesh()
 		fade_power = value
-		mesh.material.set_shader_parameter("fade_power", fade_power)
+		multimesh.mesh.material.set_shader_parameter("fade_power", fade_power)
 
-func create_mesh():
-	mesh = BoxMesh.new()
-	mesh.material = ShaderMaterial.new()
-	mesh.material.shader = preload("res://addons/decal_compatibility_node/decal.gdshader")
+func create_multimesh():
+	multimesh = MultiMesh.new()
+	multimesh.instance_count = 0
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	multimesh.use_custom_data = true
+	#multimesh.use_colors = true
+	multimesh.mesh = BoxMesh.new()
+	multimesh.mesh.material = ShaderMaterial.new()
+	multimesh.mesh.material.shader = preload("res://addons/decal_compatibility/decal_instance.gdshader")
 	update_shader()
 
 func update_shader():
-	mesh.size.x = size.x
-	mesh.size.y = size.y
-	mesh.size.z = size.z
-	mesh.material.set_shader_parameter("scale_mod", Vector3(1/size.x,1/size.y,1/size.z))
-	mesh.material.set_shader_parameter("cube_half_size", Vector3(size.x/2,size.y/2,size.z/2))
-	mesh.material.set_shader_parameter("enable_y_fade", enable_fade)
+	multimesh.instance_count = instance_count
+	multimesh.mesh.size.x = size.x
+	multimesh.mesh.size.y = size.y
+	multimesh.mesh.size.z = size.z
+	multimesh.mesh.material.set_shader_parameter("scale_mod", Vector3(1/size.x,1/size.y,1/size.z))
+	multimesh.mesh.material.set_shader_parameter("cube_half_size", Vector3(size.x/2,size.y/2,size.z/2))
+	multimesh.mesh.material.set_shader_parameter("enable_y_fade", enable_fade)
 	
 
 # @tool methods
@@ -104,8 +116,8 @@ func _validate_property(property: Dictionary) -> void:
 		property.hint_string= "0.001,1024.0,0.001"
 	elif property.name in ["transparency","mesh","skin", "skeleton", "Skeleton", "material_override", "material_overlay", "lod_bias"]:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
-	#elif property.name.begins_with("visibility_"):
-		#property.usage = PROPERTY_USAGE_NO_EDITOR
+	elif property.name.begins_with("multimesh"):
+		property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name.begins_with("gi_"):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name.begins_with("cast_"):

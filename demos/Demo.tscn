@@ -1,11 +1,11 @@
 [gd_scene load_steps=35 format=3 uid="uid://05pttlflf183"]
 
-[ext_resource type="Script" uid="uid://bk58odjyfawkr" path="res://src/camera.gd" id="1_0miaj"]
-[ext_resource type="Shader" uid="uid://foqf6idimvb0" path="res://addons/decal_compatibility_node/decal.gdshader" id="1_umdxf"]
+[ext_resource type="Script" uid="uid://bk58odjyfawkr" path="res://demos/src/camera.gd" id="1_0miaj"]
+[ext_resource type="Shader" uid="uid://foqf6idimvb0" path="res://addons/decal_compatibility/decal.gdshader" id="1_umdxf"]
 [ext_resource type="Texture2D" uid="uid://c3wmc6bn7ua77" path="res://assets/Alien Surface 01_BaseColor.jpg" id="2_0miaj"]
 [ext_resource type="Texture2D" uid="uid://bjgl15l6fx00f" path="res://assets/floor.png" id="2_wppxa"]
 [ext_resource type="Texture2D" uid="uid://b1weya5tioumr" path="res://assets/wall.png" id="3_5flai"]
-[ext_resource type="Script" uid="uid://feckn7f3pmud" path="res://addons/decal_compatibility_node/decal_compatibility_node.gd" id="3_umdxf"]
+[ext_resource type="Script" uid="uid://feckn7f3pmud" path="res://addons/decal_compatibility/decal_compatibility.gd" id="3_umdxf"]
 [ext_resource type="Texture2D" uid="uid://dvqxuqxsbx11e" path="res://assets/Godot_icon.png" id="4_3xrpy"]
 [ext_resource type="Texture2D" uid="uid://dwwqhljh8l8t3" path="res://assets/bullethole.png" id="7_6kxbp"]
 [ext_resource type="Texture2D" uid="uid://bv2kjwha3158k" path="res://assets/loading.png" id="8_kdopp"]
@@ -106,8 +106,8 @@ size = Vector3(8, 2, 8)
 render_priority = 0
 shader = ExtResource("1_umdxf")
 shader_parameter/albedo = ExtResource("7_6kxbp")
-shader_parameter/albedo_mix = 1.0
-shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/albedo_mix = 0.9
+shader_parameter/modulate = Color(1, 1, 1, 0.905882)
 shader_parameter/scale_mod = Vector3(1, 10, 1)
 shader_parameter/cube_half_size = Vector3(0.5, 0.05, 0.5)
 shader_parameter/enable_y_fade = false
@@ -216,10 +216,6 @@ mesh = SubResource("TorusMesh_d6ua1")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="ForwardPlusDecal" type="Decal" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7805, 2.93771, 0)
-visible = false
-
 [node name="CompatibilityDecals" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -238,7 +234,7 @@ enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="SlimOnFloor" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.72772, 0.0469031, -3.16319)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54764, -0.12357, -3.16319)
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_wppxa")
 Skeleton = null
