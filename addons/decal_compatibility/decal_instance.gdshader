@@ -4,7 +4,7 @@ render_mode unshaded, cull_front, depth_test_disabled;  // Hack
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture ,filter_linear_mipmap;
 
-uniform sampler2D albedo : hint_default_transparent, repeat_disable, filter_linear_mipmap_anisotropic;
+uniform sampler2D albedo : source_color, hint_default_transparent, repeat_disable, filter_linear_mipmap_anisotropic;
 //uniform sampler2D normal : source_color, hint_normal, repeat_disable, filter_linear_mipmap_anisotropic;
 //uniform sampler2D orm : source_color, hint_default_white, repeat_disable, filter_linear_mipmap_anisotropic;
 //uniform sampler2D emission : source_color, hint_default_black, repeat_disable, filter_linear_mipmap_anisotropic;

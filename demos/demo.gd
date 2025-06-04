@@ -49,7 +49,7 @@ func do_bullets(delta: float):
 			gun_timer = 0
 		
 func randomizeInstances():
-	bullet_holes.reset_all_instances()
+	bullet_holes.reset_all_instances() # remember to reset instances after fading
 	bullet_holes.multimesh.visible_instance_count = 0
 	bullet_holes.albedo_mix = 0.9
 	

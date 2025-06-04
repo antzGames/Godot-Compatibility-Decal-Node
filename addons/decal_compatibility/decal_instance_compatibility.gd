@@ -15,6 +15,7 @@ class_name DecalInstanceCompatibility
 			create_multimesh()
 		instance_count = value
 		multimesh.instance_count = instance_count
+		reset_all_instances()
 
 @export_group("Albedo")
 @export var texture: Texture2D:
@@ -136,6 +137,8 @@ func _get_configuration_warnings(): # display the warning on the scene dock
 	var warnings = []
 	if !texture:
 		warnings.push_back('No Albedo texture set.')
+	if !RenderingServer.get_current_rendering_method().begins_with("gl_"):
+		warnings.push_back('This node only works with the Compatibility renderer.')
 	return warnings
 	
 func _validate_property(property: Dictionary) -> void:
@@ -149,6 +152,8 @@ func _validate_property(property: Dictionary) -> void:
 	elif property.name in ["transparency","mesh","skin", "skeleton", "Skeleton", "material_override", "material_overlay", "lod_bias"]:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name.begins_with("multimesh"):
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+	elif property.name.begins_with("visibility_"):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name.begins_with("gi_"):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
