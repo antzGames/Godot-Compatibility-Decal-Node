@@ -12,6 +12,7 @@ It its current state, I would not recommend for serious projects.
 - The decal is unshaded.
 - The mesh is front culled.  This is a hack that fixes the issue with other decal shaders that 
 dissapear if you clip the decal geometry.
+- Fading start/end (upper/lower) curves not supported, just basic start/end/power levels for fading available.
 - New nodes do not work on the Forward+/Mobile renderers, which is a non-issue becasue you should be using Godot's `Decal` node when using the Forward+/Mobile renderers.
 
 ## Features
