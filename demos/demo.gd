@@ -18,7 +18,7 @@ var location: Vector3 = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
-	randomizeInstance()
+	randomizeInstances()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -37,21 +37,20 @@ func do_bullets(delta: float):
 		if bullet_holes.multimesh.visible_instance_count >= bullet_holes.multimesh.instance_count:
 			bullet_holes.albedo_mix -= delta/2
 			if bullet_holes.albedo_mix < 0:
-				bullet_holes.multimesh.visible_instance_count = 0
 				gun_timer = 0
-				randomizeInstance()
+				randomizeInstances()
 		else:
 			gun_timer = 0
 			bullet_holes.multimesh.visible_instance_count += 1
 			audio_stream_player.play()
 		
-func randomizeInstance():
+func randomizeInstances():
 	bullet_holes.multimesh.visible_instance_count = 0
 	bullet_holes.albedo_mix = 0.9
 	
 	for instance in bullet_holes.multimesh.instance_count:
 		location.y = 2.6 + randf() * 2.75 - 1.4
-		location.x = 4.9 + randf() * 2.2 - 1.1
+		location.x = 5.1 + randf() * 2.0 - 1.0
 		location.z = 1
 		node3D.rotation = Vector3.ZERO
 		node3D.rotate_x(PI/2)

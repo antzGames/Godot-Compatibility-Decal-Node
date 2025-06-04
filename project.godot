@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Compatibility Decal"
-run/main_scene="uid://05pttlflf183"
+run/main_scene="uid://dpfaxm0876bca"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="res://assets/decal_textures/loading.png"
 config/icon="res://assets/antz_512.png"

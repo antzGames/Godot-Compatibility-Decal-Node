@@ -76,8 +76,10 @@ buffer = PackedFloat32Array(0, 0, 0, 0, 2.27897e+14, 1.4013e-45, 0, 0, 2.69049e-
 script = ExtResource("1_0qj7u")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 44.0
+offset_bottom = 26.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5flai")
