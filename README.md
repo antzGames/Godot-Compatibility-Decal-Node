@@ -5,6 +5,9 @@ in a plugin format.
 
 ![2025-06-04 08-27-48](https://github.com/user-attachments/assets/50fb507d-aabd-42e9-a64b-652a05f0a29f)
 
+![2025-06-04 08-34-10](https://github.com/user-attachments/assets/0a8b7a94-ceeb-4ee9-b1df-0b39d6cc9dc6)
+
+
 ## Limitations
 
 Let me know if you can help me fix these limitations.  I need expert level shader expertise for the Compatibility renderer. 
