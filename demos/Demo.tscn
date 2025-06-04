@@ -267,7 +267,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="GodotOnBox" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.59291, 0.393388, 0.864048)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.59291, 0.393388, 1.33072)
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_3xrpy")
 Skeleton = null
