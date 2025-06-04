@@ -100,6 +100,36 @@ func update_shader():
 	multimesh.mesh.material.set_shader_parameter("enable_y_fade", enable_fade)
 	
 
+# instance methods
+
+func reset_all_instances():
+	for instance in multimesh.instance_count:
+		reset_instance(instance)
+	
+func reset_instance(instance_id: int):
+	var custom_data: Color = multimesh.get_instance_custom_data(instance_id)
+	custom_data.a = 1.0
+	multimesh.set_instance_custom_data(instance_id, custom_data)
+
+func fade_out_instance(instance_id: int, fade_out_time: float = 1.0, start_delay: float = 0.0):
+	if fade_out_time < 0: return
+	if instance_id >= multimesh.instance_count: return
+	
+	var custom_data: Color = multimesh.get_instance_custom_data(instance_id)
+	if custom_data.a < 0: return
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_method(
+		do_tween_fade.bind(instance_id),
+		multimesh.get_instance_custom_data(instance_id).a,
+		0,
+		fade_out_time).set_delay(start_delay)
+
+func do_tween_fade(value: float, id: int):
+	var custom_data: Color = multimesh.get_instance_custom_data(id)
+	custom_data.a = value
+	multimesh.set_instance_custom_data(id, custom_data)
+	
 # @tool methods
 
 func _get_configuration_warnings(): # display the warning on the scene dock

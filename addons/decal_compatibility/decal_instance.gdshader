@@ -55,6 +55,8 @@ float smooth_fade(float y_pos) {
 }
 
 void fragment() {
+	if (custom_data.a < 0.001) discard;
+
 	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
 	vec3 world_pos = world_pos_from_depth(depth, SCREEN_UV, INV_PROJECTION_MATRIX, (INV_VIEW_MATRIX));
 	vec4 test_pos = (INV_MODEL_MATRIX * vec4(world_pos, 1.0));
@@ -83,7 +85,7 @@ void fragment() {
 	}
 
 	ALBEDO = texture(albedo, NEW_UV).rgb * modulate.rgb * y_fade;
-	ALPHA = texture(albedo, NEW_UV).a * modulate.a * albedo_mix * y_fade;
+	ALPHA = texture(albedo, NEW_UV).a * modulate.a * albedo_mix * y_fade * custom_data.a;
 
     //NORMAL_MAP = normal_map;
 

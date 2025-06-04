@@ -12,6 +12,7 @@ extends Node3D
 
 var timer: float
 var gun_timer: float
+var reset_timer: float
 var node3D: Node3D = Node3D.new()
 var location: Vector3 = Vector3.ZERO
 
@@ -33,18 +34,22 @@ func _process(delta: float) -> void:
 	
 func do_bullets(delta: float):
 	gun_timer += delta
-	if gun_timer > 2:
-		if bullet_holes.multimesh.visible_instance_count >= bullet_holes.multimesh.instance_count:
-			bullet_holes.albedo_mix -= delta/2
-			if bullet_holes.albedo_mix < 0:
-				gun_timer = 0
-				randomizeInstances()
-		else:
+	if bullet_holes.multimesh.visible_instance_count >= bullet_holes.multimesh.instance_count:
+		reset_timer += delta
+		if reset_timer > 5:
+			reset_timer = 0
 			gun_timer = 0
+			randomizeInstances()
+	else:
+		if gun_timer > 1:
+			bullet_holes.fade_out_instance(bullet_holes.multimesh.visible_instance_count, 2, 3)
+			if bullet_holes.multimesh.visible_instance_count <= bullet_holes.multimesh.instance_count:
+				audio_stream_player.play()
 			bullet_holes.multimesh.visible_instance_count += 1
-			audio_stream_player.play()
+			gun_timer = 0
 		
 func randomizeInstances():
+	bullet_holes.reset_all_instances()
 	bullet_holes.multimesh.visible_instance_count = 0
 	bullet_holes.albedo_mix = 0.9
 	
