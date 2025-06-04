@@ -79,9 +79,13 @@ void fragment() {
 
     vec2 NEW_UV = (test_pos.xz * scale_mod.xz) + 0.5;
 
-    //vec3 emission_map = texture(emission, NEW_UV).rgb;
-    //vec3 normal_map = texture(normal, NEW_UV).rgb;
-    //float orm_map = texture(orm, NEW_UV).r;
+	//vec3 emission_map = texture(emission, NEW_UV).rgb;
+  	//vec3 normal_map = texture(normal, NEW_UV);
+
+	// AO = RED, orm = GREEN, METALLIC = BLUE,
+	//float ao_map = texture(orm, NEW_UV).r;
+    //float orm_map = texture(orm, NEW_UV).g;
+	//float metallic_map = texture(orm, NEW_UV).b;
 
     // Default fade factor (1.0 means no fade)
     float y_fade = 1.0;
