@@ -11,7 +11,7 @@ in a plugin format.
 ## Limitations
 
 Let me know if you can help me fix these limitations.  I need expert level shader expertise for the Compatibility renderer. 
-It its current state, I would not recommend for serious projects.
+In its current state, I would not recommend this solution for serious projects.
 
 - No normal map, ambient occlission, roughness, metallic or emission texture support.
 - The decal is unshaded.
