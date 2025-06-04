@@ -116,7 +116,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41089, -0.811024, -6.91104
 mesh = SubResource("SphereMesh_wppxa")
 skeleton = NodePath("../..")
 
-[node name="Sphere4" type="MeshInstance3D" parent="Environment"]
+[node name="Sphere3" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73808, -0.731131, 0.93522)
 mesh = SubResource("SphereMesh_wppxa")
 skeleton = NodePath("../..")

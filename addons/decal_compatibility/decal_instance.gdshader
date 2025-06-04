@@ -1,3 +1,13 @@
+/*
+
+Based on Lelu's decal shader: https://godotshaders.com/shader/decal-shader-similar-to-forward-decal-but-for-compatibility-mobile/
+which is based these two shaders:
+
+TwistedTwigleg decal example shader: https://godotshaders.com/shader/decal-example/
+OlisUnfinishedProjects Decal shader: https://godotshaders.com/shader/decal-shader-4-0-port/
+
+*/
+
 shader_type spatial;
 //render_mode world_vertex_coords, blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 render_mode unshaded, cull_front, depth_test_disabled;  // Hack
