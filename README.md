@@ -1,37 +1,40 @@
-# Compatibility Decal Node plugin for Godot 4.4+
-
-Both instanced and non-instanced Decal node functionality for the Godot Compatibility Renderer 
-in a plugin format.
-
-![2025-06-04 08-27-48](https://github.com/user-attachments/assets/50fb507d-aabd-42e9-a64b-652a05f0a29f)
-
-![2025-06-04 08-34-10](https://github.com/user-attachments/assets/0a8b7a94-ceeb-4ee9-b1df-0b39d6cc9dc6)
-
+# Compatibility Decal Node Plugin for Godot 4.4+
+This plugin provides both instanced and non-instanced decal node functionality for the Compatibility Renderer in Godot 4.4+, packaged as an easy-to-use plugin.
 
 ## Limitations
 
-Let me know if you can help me fix these limitations.  I need expert level shader expertise for the Compatibility renderer. 
-In its current state, I would not recommend this solution for serious projects.
+⚠️This plugin is currently experimental and not recommended for production use.
 
-- No normal map, ambient occlission, roughness, metallic or emission texture support.
-- The decal is unshaded.
-- The mesh is front culled.  This is a hack that fixes the issue with other decal shaders that 
-dissapear if you clip the decal geometry.
-- Fading start/end (upper/lower) curves not supported, just basic start/end/power levels for fading available.
-- New nodes do not work on the Forward+/Mobile renderers, which is a non-issue becasue you should be using Godot's `Decal` node when using the Forward+/Mobile renderers.
+🕵️ I'm seeking expert-level shader assistance to help resolve the current issues—particularly for the Compatibility Renderer.
+
+Known limitations:
+
+- No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
+
+- Decals are unshaded (no lighting interaction).
+
+- The mesh is front-culled as a workaround to prevent decal clipping artifacts.
+(This hack addresses the issue where decals disappear when the geometry intersects.)
+
+- No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available.
+
+The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in Decal node when targeting those renderers.
 
 ## Features
-
-- Decals project onto uneven geometry.
-- Decals can be projected on ground or walls.
-- 2 Nodes added to Godot 4.4+: `DecalCompatibility` and `DecalInstanceCompatibility` nodes.
-- No need to adjust shader.  Godot's editor inspector simplifies usage.
+- Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
+- Decals can be projected onto both floors and walls.
+- Adds two new nodes to Godot 4.4+:
+  - `DecalCompatibility` extends MeshInstance3D, which should be used when only one decal is needed.
+  - `DecalInstanceCompatibility` extends MultiMeshInstance3D, which should be used when you need large amounts of the same decal, like bullet holes.
+- No need to modify shaders—fully usable via the Godot editor Inspector.
 - Full transparency support.
-- Easy fading support. Basic start/end/power levels for fading available.
-- Complete control over individual instances' alpha when using `DecalInstanceCompatibility` node.
-- Documented code.
-- 2 Demos included (`Demo.tscn` and `Instanced.tscn`)
+- Easy fading controls with start, end, and power parameters.
+- Individual decal alpha control when using DecalInstanceCompatibility.
+- Fully documented code.
+- Includes two demo scenes:
+  - `Demo.tscn` shows moving, rotating, fading, distance culling, transparency, color modulating, instancing decal examples.
+  - `Instanced.tscn` shows 1000 instanced bullets rendering with just **ONE** draw call.
 
-## Planned features
+## Planned Features
 
-- Flipbook (animation) of decal.
+- Flipbook animation support for animated decals.
