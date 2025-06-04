@@ -18,15 +18,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timer += delta
-	label.text = str(decal_instance_compatibility.multimesh.visible_instance_count, " out of ", decal_instance_compatibility.multimesh.visible_instance_count, " instances visible.",
-		"\nDraw calls: ", Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME,"\nFPS: ", Engine.get_frames_per_second())
+	label.text = str(decal_instance_compatibility.multimesh.visible_instance_count, " out of ", decal_instance_compatibility.multimesh.instance_count, " instances visible.",
+		"\nDraw calls: ", Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"\nFPS: ", Engine.get_frames_per_second(),"\nUse WASD + QE + Right Mouse Button for Camera control\nESC key to exit")
 	if timer > 1.0/60.0:
 		timer = 0
 		if decal_instance_compatibility.multimesh.visible_instance_count >= decal_instance_compatibility.multimesh.instance_count:
 			decal_instance_compatibility.multimesh.visible_instance_count = 0
 		else:
 			decal_instance_compatibility.multimesh.visible_instance_count += 1
-
 
 func randomizeInstance(i: int):
 	location.y = -0.05
@@ -36,3 +35,7 @@ func randomizeInstance(i: int):
 	node3D.position = location
 	
 	decal_instance_compatibility.multimesh.set_instance_transform(i, node3D.transform)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("ui_cancel") and OS.get_name() != "Web":
+		get_tree().quit()

@@ -9,13 +9,14 @@ class_name DecalCompatibility
 		size = value
 		update_shader()
 
-@export_group("Textures")
-@export var albedo: Texture2D:
+@export_group("Albedo")
+@export var texture: Texture2D:
 	set(value):
 		if not mesh:
 			create_mesh()
-		albedo = value
-		mesh.material.set_shader_parameter("albedo", albedo)
+		texture = value
+		mesh.material.set_shader_parameter("albedo", texture)
+		update_configuration_warnings()
 #@export var normal: Texture2D:
 	#set(value):
 		#normal = value
@@ -23,14 +24,19 @@ class_name DecalCompatibility
 #@export var orm: Texture2D:
 	#set(value):
 		#orm = value
-		#mesh.material.set_shader_parameter("roughness", orm)
+		#mesh.material.set_shader_parameter("orm", orm)
 #@export var emission: Texture2D:
 	#set(value):
 		#emission = value
 		#mesh.material.set_shader_parameter("emission", emission)
 
-@export_group("Parameters")
-#@export_range(0,16,0.01) var emission_energy: float = 1.0
+#@export_group("Albedo")
+#@export_range(0,16,0.01) var emission_energy: float = 1.0:
+	#set(value):
+		#if not mesh:
+			#create_mesh()
+		#emission_energy = value
+		#mesh.material.set_shader_parameter("emission_energy", emission_energy)
 @export var modulate: Color = Color.WHITE:
 	set(value):
 		if not mesh:
@@ -74,6 +80,7 @@ func create_mesh():
 	mesh = BoxMesh.new()
 	mesh.material = ShaderMaterial.new()
 	mesh.material.shader = preload("res://addons/decal_compatibility/decal.gdshader")
+	cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	update_shader()
 
 func update_shader():
@@ -90,7 +97,7 @@ func update_shader():
 
 func _get_configuration_warnings(): # display the warning on the scene dock
 	var warnings = []
-	if !albedo:
+	if !texture:
 		warnings.push_back('No Albedo texture set.')
 	return warnings
 	

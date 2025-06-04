@@ -11,14 +11,17 @@ config_version=5
 [application]
 
 config/name="Compatibility Decal"
-run/main_scene="uid://dpfaxm0876bca"
+run/main_scene="uid://05pttlflf183"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/image="res://assets/loading.png"
+boot_splash/image="res://assets/decal_textures/loading.png"
 config/icon="res://assets/antz_512.png"
 boot_splash/minimum_display_time=500
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/size/always_on_top=true
 window/vsync/vsync_mode=0
 
@@ -30,4 +33,8 @@ enabled=PackedStringArray("res://addons/decal_compatibility/plugin.cfg")
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/positional_shadow/atlas_16_bits=false
 anti_aliasing/quality/msaa_3d=2
+lights_and_shadows/tighter_shadow_caster_culling=false

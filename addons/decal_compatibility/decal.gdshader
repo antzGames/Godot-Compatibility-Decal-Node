@@ -1,17 +1,19 @@
 shader_type spatial;
-//render_mode world_vertex_coords, blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
-render_mode unshaded, cull_front, depth_test_disabled;
+//render_mode world_vertex_coords, blend_mix, depth_test_disabled, depth_draw_opaque, cull_front, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, unshaded, cull_front, depth_test_disabled; // Hack
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture ,filter_linear_mipmap;
 
-uniform sampler2D albedo : hint_default_white, repeat_disable, filter_linear_mipmap_anisotropic;
+uniform sampler2D albedo : hint_default_transparent, repeat_disable, filter_linear_mipmap_anisotropic;
 //uniform sampler2D normal : source_color, hint_normal, repeat_disable, filter_linear_mipmap_anisotropic;
-//uniform sampler2D roughness : source_color, hint_default_white, repeat_disable, filter_linear_mipmap_anisotropic;
-//uniform sampler2D emission : source_color, hint_default_black, repeat_disable, filter_linear_mipmap_anisotropic;
+//uniform sampler2D orm : source_color, hint_default_white, repeat_disable, filter_linear_mipmap_anisotropic;
+//uniform sampler2D emission : source_color, hint_default_transparent, repeat_disable, filter_linear_mipmap_anisotropic;
 
-uniform float albedo_mix : hint_range(0.0, 1.0, 0.1) = 1.0;
-//uniform float emission_energy : hint_range(0.0, 30, 0.1) = 1.0;
+// Albedo modulate and mix
 uniform vec4 modulate : source_color = vec4(1.0,1.0,1.0,1.0);
+uniform float albedo_mix : hint_range(0.0, 1.0, 0.1) = 1.0;
+
+//uniform float emission_energy : hint_range(0.0, 30, 0.1) = 1.0;
 //uniform vec4 modulate_emission : source_color = vec4(1.0,1.0,1.0,1.0);
 
 uniform vec3 scale_mod = vec3(0);
@@ -63,9 +65,13 @@ void fragment() {
 
     vec2 NEW_UV = (test_pos.xz * scale_mod.xz) + 0.5;
 
-    //vec3 emission_map = texture(emission, NEW_UV).rgb;
-    //vec3 normal_map = texture(normal, NEW_UV).rgb;
-    //float roughness_map = texture(roughness, NEW_UV).r;
+	//vec3 emission_map = texture(emission, NEW_UV).rgb;
+  	//vec3 normal_map = texture(normal, NEW_UV);
+
+	// AO = RED, orm = GREEN, METALLIC = BLUE,
+	//float ao_map = texture(orm, NEW_UV).r;
+    //float orm_map = texture(orm, NEW_UV).g;
+	//float metallic_map = texture(orm, NEW_UV).b;
 
     // Default fade factor (1.0 means no fade)
     float y_fade = 1.0;
@@ -81,6 +87,14 @@ void fragment() {
 	ALBEDO = texture(albedo, NEW_UV).rgb * modulate.rgb * y_fade;
 	ALPHA = texture(albedo, NEW_UV).a * modulate.a * albedo_mix * y_fade;
     //NORMAL_MAP = normal_map;
-    //EMISSION = emission_map * emission_energy * modulate_emission.rgb * y_fade;
-    //ROUGHNESS = roughness_map;
+
+	// Hack if emission_map is not set (null) then just use the albedo
+	//if (length(emission_map) <= 0.001)
+		//EMISSION = texture(albedo, NEW_UV).rgb * modulate.rgb * y_fade;
+	//else
+    	//EMISSION = emission_map * emission_energy * modulate_emission.rgb * y_fade;
+
+	//METALLIC = metallic_map;
+	//ROUGHNESS = orm_map;
+	//AO = ao_map;
 }

@@ -1,14 +1,18 @@
-[gd_scene load_steps=35 format=3 uid="uid://05pttlflf183"]
+[gd_scene load_steps=42 format=3 uid="uid://05pttlflf183"]
 
 [ext_resource type="Script" uid="uid://bk58odjyfawkr" path="res://demos/src/camera.gd" id="1_0miaj"]
+[ext_resource type="Script" uid="uid://dv33nxyvwjabi" path="res://demos/demo.gd" id="1_a56cn"]
 [ext_resource type="Shader" uid="uid://foqf6idimvb0" path="res://addons/decal_compatibility/decal.gdshader" id="1_umdxf"]
-[ext_resource type="Texture2D" uid="uid://c3wmc6bn7ua77" path="res://assets/Alien Surface 01_BaseColor.jpg" id="2_0miaj"]
-[ext_resource type="Texture2D" uid="uid://bjgl15l6fx00f" path="res://assets/floor.png" id="2_wppxa"]
-[ext_resource type="Texture2D" uid="uid://b1weya5tioumr" path="res://assets/wall.png" id="3_5flai"]
+[ext_resource type="Texture2D" uid="uid://c3wmc6bn7ua77" path="res://assets/decal_textures/Alien Surface 01_BaseColor.jpg" id="2_0miaj"]
+[ext_resource type="Texture2D" uid="uid://bjgl15l6fx00f" path="res://assets/environment/floor.png" id="2_wppxa"]
+[ext_resource type="Texture2D" uid="uid://b1weya5tioumr" path="res://assets/environment/wall.png" id="3_5flai"]
 [ext_resource type="Script" uid="uid://feckn7f3pmud" path="res://addons/decal_compatibility/decal_compatibility.gd" id="3_umdxf"]
-[ext_resource type="Texture2D" uid="uid://dvqxuqxsbx11e" path="res://assets/Godot_icon.png" id="4_3xrpy"]
-[ext_resource type="Texture2D" uid="uid://dwwqhljh8l8t3" path="res://assets/bullethole.png" id="7_6kxbp"]
-[ext_resource type="Texture2D" uid="uid://bv2kjwha3158k" path="res://assets/loading.png" id="8_kdopp"]
+[ext_resource type="Texture2D" uid="uid://dvqxuqxsbx11e" path="res://assets/decal_textures/Godot_icon.png" id="4_3xrpy"]
+[ext_resource type="Texture2D" uid="uid://dwwqhljh8l8t3" path="res://assets/decal_textures/bullethole.png" id="7_6kxbp"]
+[ext_resource type="Texture2D" uid="uid://bv2kjwha3158k" path="res://assets/decal_textures/loading.png" id="8_kdopp"]
+[ext_resource type="AudioStream" uid="uid://xdbr2j80hmdw" path="res://assets/gun-fire.mp3" id="11_ma0ir"]
+[ext_resource type="Shader" uid="uid://0ysverksjyo3" path="res://addons/decal_compatibility/decal_instance.gdshader" id="11_twex6"]
+[ext_resource type="Script" uid="uid://bw6heqxc8r4tx" path="res://addons/decal_compatibility/decal_instance_compatibility.gd" id="12_c6bat"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6kxbp"]
 
@@ -72,10 +76,10 @@ outer_radius = 2.0
 render_priority = 0
 shader = ExtResource("1_umdxf")
 shader_parameter/albedo = ExtResource("4_3xrpy")
-shader_parameter/albedo_mix = 0.7
 shader_parameter/modulate = Color(1, 1, 1, 0.788235)
-shader_parameter/scale_mod = Vector3(0.5, 1, 0.5)
-shader_parameter/cube_half_size = Vector3(1, 0.5, 1)
+shader_parameter/albedo_mix = 0.7
+shader_parameter/scale_mod = Vector3(0.5, 2, 0.5)
+shader_parameter/cube_half_size = Vector3(1, 0.25, 1)
 shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
@@ -83,14 +87,31 @@ shader_parameter/fade_power = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_3xrpy"]
 material = SubResource("ShaderMaterial_wppxa")
-size = Vector3(2, 1, 2)
+size = Vector3(2, 0.5, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twex6"]
+render_priority = 0
+shader = ExtResource("1_umdxf")
+shader_parameter/albedo = ExtResource("4_3xrpy")
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/albedo_mix = 0.8
+shader_parameter/scale_mod = Vector3(0.5, 0.5, 0.5)
+shader_parameter/cube_half_size = Vector3(1, 1, 1)
+shader_parameter/enable_y_fade = false
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
+shader_parameter/fade_power = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_c6bat"]
+material = SubResource("ShaderMaterial_twex6")
+size = Vector3(2, 2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umdxf"]
 render_priority = 0
 shader = ExtResource("1_umdxf")
 shader_parameter/albedo = ExtResource("2_0miaj")
-shader_parameter/albedo_mix = 1.0
 shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/albedo_mix = 1.0
 shader_parameter/scale_mod = Vector3(0.125, 0.5, 0.125)
 shader_parameter/cube_half_size = Vector3(4, 1, 4)
 shader_parameter/enable_y_fade = true
@@ -102,32 +123,31 @@ shader_parameter/fade_power = 1.0
 material = SubResource("ShaderMaterial_umdxf")
 size = Vector3(8, 2, 8)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6kxbp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a56cn"]
 render_priority = 0
 shader = ExtResource("1_umdxf")
-shader_parameter/albedo = ExtResource("7_6kxbp")
-shader_parameter/albedo_mix = 0.9
-shader_parameter/modulate = Color(1, 1, 1, 0.905882)
-shader_parameter/scale_mod = Vector3(1, 10, 1)
-shader_parameter/cube_half_size = Vector3(0.5, 0.05, 0.5)
+shader_parameter/albedo = ExtResource("8_kdopp")
+shader_parameter/modulate = Color(1, 1, 1, 0.901961)
+shader_parameter/albedo_mix = 0.8
+shader_parameter/scale_mod = Vector3(0.15625, 0.5, 0.277778)
+shader_parameter/cube_half_size = Vector3(3.2, 1, 1.8)
 shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_kdopp"]
-material = SubResource("ShaderMaterial_6kxbp")
-uv2_padding = 2.2
-size = Vector3(1, 0.1, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_ma0ir"]
+material = SubResource("ShaderMaterial_a56cn")
+size = Vector3(6.4, 2, 3.6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5flai"]
 render_priority = 0
 shader = ExtResource("1_umdxf")
 shader_parameter/albedo = ExtResource("8_kdopp")
-shader_parameter/albedo_mix = 0.9
-shader_parameter/modulate = Color(1, 1, 1, 0.439216)
-shader_parameter/scale_mod = Vector3(0.15625, 10, 0.277778)
-shader_parameter/cube_half_size = Vector3(3.2, 0.05, 1.8)
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/albedo_mix = 0.7
+shader_parameter/scale_mod = Vector3(0.5, 0.5, 0.5)
+shader_parameter/cube_half_size = Vector3(1, 1, 1)
 shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
@@ -135,14 +155,14 @@ shader_parameter/fade_power = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_u0d3p"]
 material = SubResource("ShaderMaterial_5flai")
-size = Vector3(6.4, 0.1, 3.6)
+size = Vector3(2, 2, 2)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_umjme"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v2kpa"]
 render_priority = 0
-shader = ExtResource("1_umdxf")
+shader = ExtResource("11_twex6")
 shader_parameter/albedo = ExtResource("7_6kxbp")
-shader_parameter/albedo_mix = 1.0
-shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/modulate = Color(1, 1, 1, 0.901961)
+shader_parameter/albedo_mix = 0.9
 shader_parameter/scale_mod = Vector3(1, 1, 1)
 shader_parameter/cube_half_size = Vector3(0.5, 0.5, 0.5)
 shader_parameter/enable_y_fade = false
@@ -150,10 +170,23 @@ shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_uj38w"]
-material = SubResource("ShaderMaterial_umjme")
+[sub_resource type="BoxMesh" id="BoxMesh_l33fo"]
+material = SubResource("ShaderMaterial_v2kpa")
+
+[sub_resource type="MultiMesh" id="MultiMesh_hp8nf"]
+transform_format = 1
+use_custom_data = true
+instance_count = 5
+mesh = SubResource("BoxMesh_l33fo")
+buffer = PackedFloat32Array(2.05789e-39, 8.35174e-43, 2.06491e-39, 8.35174e-43, 3.15555e-35, 8.35174e-43, 3.15636e-35, 8.35174e-43, 3.16161e-35, 8.35174e-43, 6.76614e-36, 8.35174e-43, -3.375, 8.05259e-05, 3.55244e-05, 0, 541314, 8.35174e-43, 277973, 8.35174e-43, 277177, 8.35174e-43, 277708, 8.35174e-43, 2.28557e-35, 8.35174e-43, 2.28638e-35, 8.35174e-43, 52.5, 8.05855e-05, 3.55244e-05, 0, 9.42115e-36, 8.35174e-43, 7.23635e+12, 8.35174e-43, 7.26753e+12, 8.35174e-43, 7.26307e+12, 8.35174e-43, 9.35902e-36, 8.35174e-43, 9.41506e-36, 8.35174e-43, -12160, 77.1875, 3.55244e-05, 0, 7.27792e+12, 8.35174e-43, 7.24674e+12, 8.35174e-43, 9.41709e-36, 8.35174e-43, 2.50044e-35, 8.35174e-43, 9.39677e-36, 8.35174e-43, 9.41099e-36, 8.35174e-43, -0.0722656, 8.05259e-05, 3.55244e-05, 0, 7.23932e+12, 8.35174e-43, 2.28598e-35, 8.35174e-43, 7.23783e+12, 8.35174e-43, 541668, 8.35174e-43, 277796, 8.35174e-43, 277619, 8.35174e-43, 2.46875, 77.1875, 3.55244e-05, 0)
 
 [node name="Demo" type="Node3D"]
+script = ExtResource("1_a56cn")
+
+[node name="Label" type="Label" parent="."]
+offset_top = -2.0
+offset_right = 40.0
+offset_bottom = 21.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5flai")
@@ -164,12 +197,11 @@ shadow_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 4.37114e-08, -7.57103e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 4.60355, 3.36279, -4.8728)
+transform = Transform3D(-0.803543, -0.277759, 0.526469, -0.0271965, 0.900661, 0.43367, -0.594626, 0.334154, -0.731274, 8.06642, 3.50017, -5.64943)
 near = 0.01
 far = 100.0
 script = ExtResource("1_0miaj")
 sensitivity = 0.1
-metadata/_edit_lock_ = true
 
 [node name="Environment" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
@@ -188,6 +220,12 @@ metadata/_edit_lock_ = true
 
 [node name="Sphere2" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24451, -0.18583, 0.93522)
+mesh = SubResource("SphereMesh_wppxa")
+skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="Sphere3" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.57029, -0.947788, 4.15267)
 mesh = SubResource("SphereMesh_wppxa")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
@@ -220,106 +258,89 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="GodotOnBox" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.59291, 0.393388, 1.15944)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.59291, 0.393388, 0.864048)
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_3xrpy")
 Skeleton = null
 skeleton = NodePath("../..")
 script = ExtResource("3_umdxf")
-size = Vector3(2, 1, 2)
-albedo = ExtResource("4_3xrpy")
+size = Vector3(2, 0.5, 2)
+texture = ExtResource("4_3xrpy")
 modulate = Color(1, 1, 1, 0.788235)
 albedo_mix = 0.7
 enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
-[node name="SlimOnFloor" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54764, -0.12357, -3.16319)
+[node name="MovingGodot" type="MeshInstance3D" parent="CompatibilityDecals"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.04701, 0.599118, 0)
+cast_shadow = 0
+gi_lightmap_scale = 0
+mesh = SubResource("BoxMesh_c6bat")
+Skeleton = null
+script = ExtResource("3_umdxf")
+texture = ExtResource("4_3xrpy")
+albedo_mix = 0.8
+enable_fade = false
+metadata/_custom_type_script = "uid://feckn7f3pmud"
+
+[node name="SlimeOnFloor" type="MeshInstance3D" parent="CompatibilityDecals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82018, -0.0769577, -3.16319)
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_wppxa")
 Skeleton = null
 script = ExtResource("3_umdxf")
 size = Vector3(8, 2, 8)
-albedo = ExtResource("2_0miaj")
+texture = ExtResource("2_0miaj")
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
-[node name="BulletHole" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.04901, 3.27597, 1.0889)
+[node name="MyRotatingLogo" type="MeshInstance3D" parent="CompatibilityDecals"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.19326, 0, 2.56533)
 cast_shadow = 0
-ignore_occlusion_culling = true
 gi_lightmap_scale = 0
-mesh = SubResource("BoxMesh_kdopp")
+mesh = SubResource("BoxMesh_ma0ir")
 Skeleton = null
-skeleton = NodePath("../..")
 script = ExtResource("3_umdxf")
-size = Vector3(1, 0.1, 1)
-albedo = ExtResource("7_6kxbp")
-modulate = Color(1, 1, 1, 0.905882)
-albedo_mix = 0.9
-enable_fade = false
-metadata/_custom_type_script = "uid://feckn7f3pmud"
-
-[node name="BulletHole2" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.41988, 2.26648, 1.04617)
-gi_lightmap_scale = 0
-mesh = SubResource("BoxMesh_kdopp")
-Skeleton = null
-skeleton = NodePath("../..")
-script = ExtResource("3_umdxf")
-size = Vector3(1, 0.1, 1)
-albedo = ExtResource("7_6kxbp")
-enable_fade = false
-metadata/_custom_type_script = "uid://feckn7f3pmud"
-
-[node name="BulletHole3" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.62516, 3.99219, 1.0889)
-gi_lightmap_scale = 0
-mesh = SubResource("BoxMesh_kdopp")
-Skeleton = null
-skeleton = NodePath("../..")
-script = ExtResource("3_umdxf")
-size = Vector3(1, 0.1, 1)
-albedo = ExtResource("7_6kxbp")
-modulate = Color(1, 1, 1, 0.905882)
-albedo_mix = 0.9
-enable_fade = false
-metadata/_custom_type_script = "uid://feckn7f3pmud"
-
-[node name="MyLogo" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.91889, -0.543199, 0)
-gi_lightmap_scale = 0
-mesh = SubResource("BoxMesh_u0d3p")
-Skeleton = null
-skeleton = NodePath("../..")
-script = ExtResource("3_umdxf")
-size = Vector3(6.4, 0.1, 3.6)
-albedo = ExtResource("8_kdopp")
-albedo_mix = 0.9
+size = Vector3(6.4, 2, 3.6)
+texture = ExtResource("8_kdopp")
+modulate = Color(1, 1, 1, 0.901961)
+albedo_mix = 0.8
 enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="MyLogoDistanceFade" type="MeshInstance3D" parent="CompatibilityDecals"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.19723, -0.475724, 7.22857)
 gi_lightmap_scale = 0
-visibility_range_end = 12.0
+visibility_range_end = 10.0
 mesh = SubResource("BoxMesh_u0d3p")
 Skeleton = null
 skeleton = NodePath("../..")
 script = ExtResource("3_umdxf")
 size = Vector3(6.4, 0.1, 3.6)
-albedo = ExtResource("8_kdopp")
+texture = ExtResource("8_kdopp")
 modulate = Color(1, 1, 1, 0.439216)
 albedo_mix = 0.9
 enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
-[node name="MyNewBulletHole" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(0.838671, -0.544639, 0, 0.544639, 0.838671, 0, 0, 0, 1, 3.04139, 0.0544844, -5.93697)
+[node name="Label3D" type="Label3D" parent="CompatibilityDecals/MyLogoDistanceFade"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16502, 0)
+pixel_size = 0.01
+text = "Distance Test"
+
+[node name="BulletHoles" type="MultiMeshInstance3D" parent="CompatibilityDecals"]
+cast_shadow = 0
 gi_lightmap_scale = 0
-mesh = SubResource("BoxMesh_uj38w")
-Skeleton = null
-script = ExtResource("3_umdxf")
+multimesh = SubResource("MultiMesh_hp8nf")
+script = ExtResource("12_c6bat")
 size = Vector3(1, 1, 1)
-albedo = ExtResource("7_6kxbp")
+instance_count = 5
+texture = ExtResource("7_6kxbp")
+modulate = Color(1, 1, 1, 0.901961)
+albedo_mix = 0.9
 enable_fade = false
-metadata/_custom_type_script = "uid://feckn7f3pmud"
+metadata/_custom_type_script = "uid://bw6heqxc8r4tx"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ma0ir")
+volume_db = -11.03
+max_polyphony = 3

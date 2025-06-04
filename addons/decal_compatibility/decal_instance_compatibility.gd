@@ -16,13 +16,14 @@ class_name DecalInstanceCompatibility
 		instance_count = value
 		multimesh.instance_count = instance_count
 
-@export_group("Textures")
-@export var albedo: Texture2D:
+@export_group("Albedo")
+@export var texture: Texture2D:
 	set(value):
 		if not multimesh:
 			create_multimesh()
-		albedo = value
-		multimesh.mesh.material.set_shader_parameter("albedo", albedo)
+		texture = value
+		multimesh.mesh.material.set_shader_parameter("albedo", texture)
+		update_configuration_warnings()
 #@export var normal: Texture2D:
 	#set(value):
 		#normal = value
@@ -36,7 +37,7 @@ class_name DecalInstanceCompatibility
 		#emission = value
 		#multimesh.mesh.material.set_shader_parameter("emission", emission)
 
-@export_group("Parameters")
+#@export_group("Albedo")
 #@export_range(0,16,0.01) var emission_energy: float = 1.0
 @export var modulate: Color = Color.WHITE:
 	set(value):
@@ -86,6 +87,7 @@ func create_multimesh():
 	multimesh.mesh = BoxMesh.new()
 	multimesh.mesh.material = ShaderMaterial.new()
 	multimesh.mesh.material.shader = preload("res://addons/decal_compatibility/decal_instance.gdshader")
+	cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	update_shader()
 
 func update_shader():
@@ -102,7 +104,7 @@ func update_shader():
 
 func _get_configuration_warnings(): # display the warning on the scene dock
 	var warnings = []
-	if !albedo:
+	if !texture:
 		warnings.push_back('No Albedo texture set.')
 	return warnings
 	
