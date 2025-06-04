@@ -19,7 +19,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	timer += delta
 	label.text = str(decal_instance_compatibility.multimesh.visible_instance_count, " out of ", decal_instance_compatibility.multimesh.instance_count, " instances visible.",
-		"\nDraw calls: ", Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"\nFPS: ", Engine.get_frames_per_second(),"\nUse WASD + QE + Right Mouse Button for Camera control\nESC key to exit")
+		"\nDraw calls: ", Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"\nFPS: ", Engine.get_frames_per_second(),"\nUse WASD + QE + Right Mouse Button for Camera control\nESC key to exit (Desktop Only)")
 	if timer > 1.0/60.0:
 		timer = 0
 		if decal_instance_compatibility.multimesh.visible_instance_count >= decal_instance_compatibility.multimesh.instance_count:

@@ -57,7 +57,7 @@ size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0d3p"]
 albedo_texture = ExtResource("3_5flai")
-uv1_scale = Vector3(9, 9, 9)
+uv1_scale = Vector3(6, 18, 6)
 texture_filter = 5
 
 [sub_resource type="BoxMesh" id="BoxMesh_umdxf"]

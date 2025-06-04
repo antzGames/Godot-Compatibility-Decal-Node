@@ -10,7 +10,6 @@ extends Node3D
 @onready var bullet_holes: DecalInstanceCompatibility = $CompatibilityDecals/BulletHoles
 @onready var moving_godot: DecalCompatibility = $CompatibilityDecals/MovingGodot
 
-
 var timer: float
 var gun_timer: float
 var node3D: Node3D = Node3D.new()
@@ -21,12 +20,11 @@ func _ready() -> void:
 	randomize()
 	randomizeInstance()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timer += delta
 	slime_on_floor.position.x = sin(timer) + 5.82
-	label.text = str("Draw calls: ", Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"\nFPS: ", Engine.get_frames_per_second(),"\nUse WASD + QE + Right Mouse Button for Camera control\nESC key to exit")
+	label.text = str("Draw calls: ", Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"\nFPS: ", Engine.get_frames_per_second(),"\nUse WASD + QE + Right Mouse Button for Camera control\nESC key to exit (Desktop Only)")
 	label_3d.text = str("Distance Test (10 meters)\nDistance to camera: %.1f" % my_logo_distance_fade.position.distance_to(camera_3d.position))
 	my_rotating_logo.rotate_y(-delta/2.0)
 	moving_godot.modulate.g = cos(timer)/2 + 0.5
@@ -52,9 +50,8 @@ func randomizeInstance():
 	bullet_holes.albedo_mix = 0.9
 	
 	for instance in bullet_holes.multimesh.instance_count:
-		
-		location.y = 1.2 + randf() * 2.75
-		location.x = 4 + randf() * 2.2
+		location.y = 2.6 + randf() * 2.75 - 1.4
+		location.x = 4.9 + randf() * 2.2 - 1.1
 		location.z = 1
 		node3D.rotation = Vector3.ZERO
 		node3D.rotate_x(PI/2)
