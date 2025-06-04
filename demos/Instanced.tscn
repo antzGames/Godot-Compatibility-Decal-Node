@@ -55,8 +55,8 @@ shader = ExtResource("11_8bcin")
 shader_parameter/albedo = ExtResource("9_3shve")
 shader_parameter/modulate = Color(1, 1, 1, 0.890196)
 shader_parameter/albedo_mix = 0.9
-shader_parameter/scale_mod = Vector3(1, 1, 1)
-shader_parameter/cube_half_size = Vector3(0.5, 0.5, 0.5)
+shader_parameter/scale_mod = Vector3(2, 1, 2)
+shader_parameter/cube_half_size = Vector3(0.25, 0.5, 0.25)
 shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
@@ -64,6 +64,7 @@ shader_parameter/fade_power = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_umjme"]
 material = SubResource("ShaderMaterial_d6ua1")
+size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="MultiMesh" id="MultiMesh_uj38w"]
 transform_format = 1
@@ -132,7 +133,7 @@ metadata/_edit_lock_ = true
 gi_lightmap_scale = 0
 multimesh = SubResource("MultiMesh_uj38w")
 script = ExtResource("12_xr4om")
-size = Vector3(1, 1, 1)
+size = Vector3(0.5, 1, 0.5)
 instance_count = 1000
 texture = ExtResource("9_3shve")
 modulate = Color(1, 1, 1, 0.890196)

@@ -41,7 +41,7 @@ func do_bullets(delta: float):
 			gun_timer = 0
 			randomizeInstances()
 	else:
-		if gun_timer > 1:
+		if gun_timer > 0.75:
 			bullet_holes.fade_out_instance(bullet_holes.multimesh.visible_instance_count, 2, 3)
 			if bullet_holes.multimesh.visible_instance_count <= bullet_holes.multimesh.instance_count:
 				audio_stream_player.play()

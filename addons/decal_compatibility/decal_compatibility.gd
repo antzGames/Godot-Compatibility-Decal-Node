@@ -1,19 +1,27 @@
 @tool
 extends MeshInstance3D
 class_name DecalCompatibility
+## Allows simple Decals using the Compatibility renderer,
+## extending the [MeshInstance3D] node.
+##
+## For instancing support, use the [DecalInstanceCompatibility] node,
+## which will allow thousands of decals to be draw with one draw call.
+## @experimental
 
+## The size of the [BoxMesh] that will be used to draw the decal.
 @export var size: Vector3 = Vector3(2,2,2):
 	set(value):
 		if not mesh:
-			create_mesh()
+			_create_mesh()
 		size = value
-		update_shader()
+		_update_shader()
 
 @export_group("Albedo")
+## The [Texture2D] to be displayed as a Decal.
 @export var texture: Texture2D:
 	set(value):
 		if not mesh:
-			create_mesh()
+			_create_mesh()
 		texture = value
 		mesh.material.set_shader_parameter("albedo", texture)
 		update_configuration_warnings()
@@ -34,67 +42,70 @@ class_name DecalCompatibility
 #@export_range(0,16,0.01) var emission_energy: float = 1.0:
 	#set(value):
 		#if not mesh:
-			#create_mesh()
+			#_create_mesh()
 		#emission_energy = value
 		#mesh.material.set_shader_parameter("emission_energy", emission_energy)
+## Colorize your Decal.  You can also modify the alpha channel.
 @export var modulate: Color = Color.WHITE:
 	set(value):
 		if not mesh:
-			create_mesh()
+			_create_mesh()
 		modulate = value
 		mesh.material.set_shader_parameter("modulate", modulate)
+## The strength of the mixing between the decal's albedo and the underlying geometry's material albedo.
 @export_range(0,1,0.1) var albedo_mix: float = 1.0:
 	set(value):
 		if not mesh:
-			create_mesh()
+			_create_mesh()
 		albedo_mix = value
 		mesh.material.set_shader_parameter("albedo_mix", albedo_mix)
 
 @export_group("Vertical Fade")
+## Enable/disable fading.
 @export var enable_fade: bool = true:
 	set(value):
 		if not mesh:
-			create_mesh()
+			_create_mesh()
 		enable_fade = value
 		mesh.material.set_shader_parameter("enable_y_fade", enable_fade)
+## Range between 0..1
 @export_range(0,1,0.01) var fade_start: float = 0.3:
 	set(value):
 		if not mesh:
-			create_mesh()
+			_create_mesh()
 		fade_start = value
 		mesh.material.set_shader_parameter("fade_start", fade_start)
+## Range between 0..1
 @export_range(0,1,0.01) var fade_end: float = 0.7:
 	set(value):
 		if not mesh:
-			create_mesh()
+			_create_mesh()
 		fade_end = value
 		mesh.material.set_shader_parameter("fade_end", fade_end)
+		## Range between 0..5
 @export_range(0.01,5,0.01) var fade_power: float = 1.0:
 	set(value):
 		if not mesh:
-			create_mesh()
+			_create_mesh()
 		fade_power = value
 		mesh.material.set_shader_parameter("fade_power", fade_power)
 
-func create_mesh():
+func _create_mesh():
 	mesh = BoxMesh.new()
 	mesh.material = ShaderMaterial.new()
 	mesh.material.shader = preload("res://addons/decal_compatibility/decal.gdshader")
 	cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	update_shader()
+	_update_shader()
 
-func update_shader():
+func _update_shader():
 	mesh.size.x = size.x
 	mesh.size.y = size.y
 	mesh.size.z = size.z
 	mesh.material.set_shader_parameter("scale_mod", Vector3(1/size.x,1/size.y,1/size.z))
 	mesh.material.set_shader_parameter("cube_half_size", Vector3(size.x/2,size.y/2,size.z/2))
 	mesh.material.set_shader_parameter("enable_y_fade", enable_fade)
-	
-
 
 # @tool methods
-
 func _get_configuration_warnings(): # display the warning on the scene dock
 	var warnings = []
 	if !texture:
