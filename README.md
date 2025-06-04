@@ -6,12 +6,12 @@ in a plugin format.
 ## Limitations
 
 Let me know if you can help me fix these limitations.  I need expert level shader expertise for the Compatibility renderer. 
-It its current state I would not recommend for serious projects.
+It its current state, I would not recommend for serious projects.
 
 - No normal map, ambient occlission, roughness, metallic or emission texture support.
 - The decal is unshaded.
 - The mesh is front culled.  This is a hack that fixes the issue with other decal shaders that 
-dissapear if you clip the decal geomotry.
+dissapear if you clip the decal geometry.
 - New nodes do not work on the Forward+/Mobile renderers, which is a non-issue becasue you should be using Godot's `Decal` node when using the Forward+/Mobile renderers.
 
 ## Features
@@ -21,7 +21,7 @@ dissapear if you clip the decal geomotry.
 - 2 Nodes added to Godot 4.4+: `DecalCompatibility` and `DecalInstanceCompatibility` nodes.
 - No need to adjust shader.  Godot's editor inspector simplifies usage.
 - Full transparency support.
-- Easy fading support.
+- Easy fading support. Basic start/end/power levels for fading available.
 - Complete control over individual instances' alpha when using `DecalInstanceCompatibility` node.
 - Documented code.
 - 2 Demos included (`Demo.tscn` and `Instanced.tscn`)
