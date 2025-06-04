@@ -3,6 +3,8 @@
 Both instanced and non-instanced Decal node functionality for the Godot Compatibility Renderer 
 in a plugin format.
 
+![2025-06-04 08-27-48](https://github.com/user-attachments/assets/50fb507d-aabd-42e9-a64b-652a05f0a29f)
+
 ## Limitations
 
 Let me know if you can help me fix these limitations.  I need expert level shader expertise for the Compatibility renderer. 
