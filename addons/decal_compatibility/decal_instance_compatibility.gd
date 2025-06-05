@@ -173,6 +173,8 @@ func _validate_property(property: Dictionary) -> void:
 		property.usage = PROPERTY_USAGE_DEFAULT
 		property.hint = PROPERTY_HINT_RANGE
 		property.hint_string= "0.001,1024.0,0.001"
+	
+	# Comment out any ELIF below to UNHIDE properties you want to see in the inspector		
 	elif property.name in ["transparency","mesh","skin", "skeleton", "Skeleton", "material_override", "material_overlay", "lod_bias"]:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name.begins_with("multimesh"):
