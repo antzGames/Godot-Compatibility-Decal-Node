@@ -8,7 +8,8 @@ This plugin provides both instanced and non-instanced decal node functionality f
 ## YouTube Tutorial
 
 See the first tutorial at: https://youtu.be/8_vL1B_J56I
-See the demos in action and more information: 
+
+See the demos in action and more information: https://youtu.be/8XnH3mT1C-c
 
 ## Limitations
 
