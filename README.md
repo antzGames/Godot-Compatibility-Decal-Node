@@ -5,6 +5,10 @@ This plugin provides both instanced and non-instanced decal node functionality f
 
 ![2025-06-04 08-34-10](https://github.com/user-attachments/assets/1e83a684-5287-4b33-8162-3dc33fcadef8)
 
+## YouTube Tutorial
+
+See the tutorial at: https://youtu.be/8XnH3mT1C-c
+
 ## Limitations
 
 ⚠️This plugin is currently experimental and not recommended for production use.
