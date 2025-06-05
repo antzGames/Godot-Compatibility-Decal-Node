@@ -9,7 +9,7 @@ This plugin provides both instanced and non-instanced decal node functionality f
 
 ⚠️This plugin is currently experimental and not recommended for production use.
 
-🕵️ I'm seeking expert-level shader assistance to help resolve the current issues—particularly for the Compatibility Renderer.
+🕵️ I'm seeking expert-level shader assistance to help resolve the current limitations listed below.
 
 Known limitations:
 
@@ -38,6 +38,44 @@ The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-i
 - Includes two demo scenes:
   - `Demo.tscn` shows moving, rotating, fading, distance culling, transparency, color modulating, instancing decal examples.
   - `Instanced.tscn` shows 1000 instanced bullets rendering with just **ONE** draw call.
+
+## Installing
+
+**Option 1**: Use as a project template:
+- Download this repository as a ZIP file.
+- Extract the ZIP file.
+- Import the project from the Godot's project selection screen.
+
+**Option 2**: Add plugin to existing project
+- Download this repository as a ZIP file.
+- Extract the ZIP file.
+- Copy the `addons` directory from the extracted ZIP file into your Godot project's `res://` filesystem.
+- Go to `Project > Project Settings > Plugins` and enable `Decal Compatibility Nodes` plugin as shown below.
+
+![4](https://github.com/user-attachments/assets/8ed3637e-0325-4e5a-adcc-efd98d95bec3)
+
+## New Nodes
+
+### DecalCompatibility
+
+Use this node if you just need one or two decals.
+
+![2](https://github.com/user-attachments/assets/51fead47-2c6b-4484-aaee-68eceb4aef87)
+
+### DecalInstanceCompatibility
+
+Use this node if you plan to use many copies of the same decal, such as bullet holes.  This allows thousands of decals to be drawn using one draw call. 
+
+`custom_data` is enabled to control the alpha channel per instance, which allows you to control fading of individual decal instances. `custom_data.a` is reserved, but the remaining 3 floats for RGB are available to you.
+
+![1](https://github.com/user-attachments/assets/f3a42b19-b25a-406d-8861-ee7369c639ed)
+
+## Using new nodes in your projects
+
+The new nodes are automatically added to Godot.  Just search `Decal` as shown below:
+
+![3](https://github.com/user-attachments/assets/48d924db-f160-4368-bb03-8f06fa275552)
+
 
 ## Planned Features
 
