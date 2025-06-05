@@ -2,8 +2,8 @@
 extends EditorPlugin
 
 func _ready() -> void:
-#	ResourceSaver.save(preload("res://addons/decal_compatibility_node/decal_compatibility_node.gd"))
-	pass
+	ResourceSaver.save(preload("res://addons/decal_compatibility/decal_compatibility.gd"))
+	ResourceSaver.save(preload("res://addons/decal_compatibility/decal_instance_compatibility.gd"))
 
 func _enter_tree() -> void:
 	# New custom node
