@@ -24,6 +24,8 @@ Known limitations:
 
 The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in Decal node when targeting those renderers.
 
+Tested on Godot 4.4.1 on Windows (nVidia RTX 3050) and Linux (Intel Inegrated Graphics) platforms.
+
 ## Features
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
 - Decals can be projected onto both floors and walls.
@@ -46,7 +48,7 @@ The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-i
 - Extract the ZIP file.
 - Import the project from the Godot's project selection screen.
 
-**Option 2**: Add plugin to existing project
+**Option 2**: Add plugin to existing project:
 - Download this repository as a ZIP file.
 - Extract the ZIP file.
 - Copy the `addons` directory from the extracted ZIP file into your Godot project's `res://` filesystem.
@@ -75,7 +77,6 @@ Use this node if you plan to use many copies of the same decal, such as bullet h
 The new nodes are automatically added to Godot.  Just search `Decal` as shown below:
 
 ![3](https://github.com/user-attachments/assets/48d924db-f160-4368-bb03-8f06fa275552)
-
 
 ## Planned Features
 
