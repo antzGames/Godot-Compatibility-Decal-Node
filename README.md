@@ -90,10 +90,12 @@ The new nodes are automatically added to Godot.  Just search `Decal` as shown be
 
 ### How to use
 
+Make sure you assign a texture to the decal.  Decal nodes in scenes will have warnings until you assign a texture to it.
+
 Make sure the geometry of the decal size intersects the ground/wall geometry or else you will see nothing. Watch the tutorial video if 
 unsure what this means. Video: https://youtu.be/8_vL1B_J56I
 
-By default both projection of the decal and fading happen on the Y-AXIS, that is works great on the ground.
+By default both projection of the decal and fading happen on the Y-AXIS, which works great on the ground.
 
 If you need to use the decals on walls (like for the bullet holes), then you will need to rotate the decal.  It is up to you to find the normal of the wall, and rotate the decal to the proper rotation.  Watch the tutorial video if unsure what this means. Video: https://youtu.be/8_vL1B_J56I
 
