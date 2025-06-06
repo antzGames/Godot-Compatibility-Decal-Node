@@ -6,8 +6,11 @@ class_name DecalInstanceCompatibility
 ##
 ## This node allows thousands of decals to be draw with one draw call.[br][br]
 ## Remember to call [method reset_all_instances] or [method reset_instance] after
-## fading instances.
+## fading instances.[br][br]
+## By [b]Antz[/b] (AntzGames)
 ## @experimental
+## @tutorial(Compatibility Decal Node Plugin for Godot 4.4+ by AntzGames): https://youtu.be/8XnH3mT1C-c
+## @tutorial(Godot Decal Node for the Compatibility Renderer by AntzGames): https://youtu.be/8_vL1B_J56I
 
 ## The size of the [BoxMesh] that will be used to draw the decal.
 @export var size: Vector3 = Vector3(2,2,2):

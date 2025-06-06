@@ -5,8 +5,11 @@ class_name DecalCompatibility
 ## extending the [MeshInstance3D] node.
 ##
 ## For instancing support, use the [DecalInstanceCompatibility] node,
-## which will allow thousands of decals to be draw with one draw call.
+## which will allow thousands of decals to be draw with one draw call.[br][br]
+## By [b]Antz[/b] (AntzGames)
 ## @experimental
+## @tutorial(Compatibility Decal Node Plugin for Godot 4.4+ by AntzGames): https://youtu.be/8XnH3mT1C-c
+## @tutorial(Godot Decal Node for the Compatibility Renderer by AntzGames): https://youtu.be/8_vL1B_J56I
 
 ## The size of the [BoxMesh] that will be used to draw the decal.
 @export var size: Vector3 = Vector3(2,2,2):
