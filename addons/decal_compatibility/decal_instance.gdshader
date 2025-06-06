@@ -6,11 +6,13 @@ which is based these two shaders:
 TwistedTwigleg decal example shader: https://godotshaders.com/shader/decal-example/
 OlisUnfinishedProjects Decal shader: https://godotshaders.com/shader/decal-shader-4-0-port/
 
+Plumbing for normal, orm, emission textures commented out
+
 */
 
 shader_type spatial;
-//render_mode world_vertex_coords, blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
-render_mode unshaded, cull_front, depth_test_disabled;  // Hack
+//render_mode world_vertex_coords, blend_mix, depth_test_disabled, depth_draw_opaque, cull_front, diffuse_lambert, specular_schlick_ggx;
+render_mode unshaded, cull_front, depth_test_disabled; // Hack
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture ,filter_linear_mipmap;
 
@@ -101,15 +103,9 @@ void fragment() {
 	ALBEDO = texture(albedo, NEW_UV).rgb * modulate.rgb * y_fade;
 	ALPHA = texture(albedo, NEW_UV).a * modulate.a * albedo_mix * y_fade * custom_data.a;
 
-    //NORMAL_MAP = normal_map;
-
-	// Hack if emission_map is not set (null) then just use the albedo
-	//if (length(emission_map) <= 0.001)
-		//EMISSION = texture(albedo, NEW_UV).rgb * modulate.rgb * y_fade;
-	//else
-    	//EMISSION = emission_map * emission_energy * modulate_emission.rgb * y_fade;
-
+	//NORMAL_MAP = normal_map;
 	//METALLIC = metallic_map;
 	//ROUGHNESS = orm_map;
 	//AO = ao_map;
+	//EMISSION = emission_map * emission_energy * modulate_emission.rgb * y_fade;
 }
