@@ -88,6 +88,9 @@ The new nodes are automatically added to Godot.  Just search `Decal` as shown be
 
 ![3](https://github.com/user-attachments/assets/48d924db-f160-4368-bb03-8f06fa275552)
 
+Make sure the geometry of the decal size intersects the ground/wall geometry or else you will see nothing. Watch the tutorial video if 
+unsure what this means. Video: https://youtu.be/8_vL1B_J56I
+
 ## Planned Features
 
 - Flipbook animation support for animated decals.
