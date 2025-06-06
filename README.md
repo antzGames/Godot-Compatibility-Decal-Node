@@ -34,7 +34,7 @@ Known limitations:
 
 The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in Decal node when targeting those renderers.
 
-Tested on Godot 4.4.1 on Windows (NVIDIA RTX 3050) and Linux (Intel Inegrated Graphics) platforms.
+Tested on Godot 4.4.1 on Windows (NVIDIA RTX 3050) and Linux (Intel Integrated Graphics) platforms.
 
 ## Features
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
