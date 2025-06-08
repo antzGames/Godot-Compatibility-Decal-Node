@@ -30,6 +30,8 @@ Known limitations:
 - The mesh is front-culled as a workaround to prevent decal clipping artifacts.
 (This hack addresses the issue where decals disappear when the geometry intersects.)
 
+- No cull masking, so any geometry that moves into the decal geometry will get the decal projected on it.
+
 - No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available.
 
 The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in Decal node when targeting those renderers.
