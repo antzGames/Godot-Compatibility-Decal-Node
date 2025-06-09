@@ -30,7 +30,7 @@ Known limitations:
 - The mesh is front-culled as a workaround to prevent decal clipping artifacts.
 (This hack addresses the issue where decals disappear when the geometry intersects.)
 
-- No cull masking, so any geometry that moves into the decal geometry will get the decal projected on it.
+- No cull masking. Any geometry (like a player) that moves into the decal geometry will get the decal projected on it.
 
 - No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available.
 
@@ -47,7 +47,7 @@ Tested on Godot 4.4.1 on Windows (NVIDIA RTX 3050) and Linux (Intel Integrated G
 - No need to modify shaders—fully usable via the Godot editor Inspector.
 - Full transparency support.
 - Easy fading controls with start, end, and power parameters.
-- Individual decal alpha control when using DecalInstanceCompatibility.
+- Individual decal alpha control when using the `DecalInstanceCompatibility` node.
 - Fully documented code.
 - Includes two demo scenes:
   - `Demo.tscn` shows moving, rotating, fading, distance culling, transparency, color modulating, instancing decal examples.
