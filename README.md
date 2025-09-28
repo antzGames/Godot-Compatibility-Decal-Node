@@ -41,7 +41,7 @@ Tested on Godot 4.4.1 on Windows (NVIDIA RTX 3050) and Linux (Intel Integrated G
 ## Features
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
 - Decals can be projected onto both floors and walls.
-- Adds two new nodes to Godot 4.4+:
+- Adds two new nodes to Godot 4.5:
   - `DecalCompatibility` extends MeshInstance3D, which should be used when only one decal is needed.
   - `DecalInstanceCompatibility` extends MultiMeshInstance3D, which should be used when you need large amounts of the same decal, like bullet holes.
 - No need to modify shaders—fully usable via the Godot editor Inspector.
