@@ -78,8 +78,8 @@ shader = ExtResource("1_umdxf")
 shader_parameter/albedo = ExtResource("4_3xrpy")
 shader_parameter/modulate = Color(1, 1, 1, 0.788235)
 shader_parameter/albedo_mix = 0.7
-shader_parameter/scale_mod = Vector3(0.5, 2, 0.5)
-shader_parameter/cube_half_size = Vector3(1, 0.25, 1)
+shader_parameter/scale_mod = Vector3(0.5, 1.3333334, 0.5)
+shader_parameter/cube_half_size = Vector3(1, 0.375, 1)
 shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
@@ -87,7 +87,7 @@ shader_parameter/fade_power = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_3xrpy"]
 material = SubResource("ShaderMaterial_wppxa")
-size = Vector3(2, 0.5, 2)
+size = Vector3(2, 0.75, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twex6"]
 render_priority = 0
@@ -129,7 +129,7 @@ shader = ExtResource("1_umdxf")
 shader_parameter/albedo = ExtResource("8_kdopp")
 shader_parameter/modulate = Color(1, 1, 1, 0.901961)
 shader_parameter/albedo_mix = 0.8
-shader_parameter/scale_mod = Vector3(0.15625, 0.5, 0.277778)
+shader_parameter/scale_mod = Vector3(0.15625, 0.5, 0.2777778)
 shader_parameter/cube_half_size = Vector3(3.2, 1, 1.8)
 shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
@@ -146,7 +146,7 @@ shader = ExtResource("1_umdxf")
 shader_parameter/albedo = ExtResource("8_kdopp")
 shader_parameter/modulate = Color(1, 1, 1, 0.729412)
 shader_parameter/albedo_mix = 0.9
-shader_parameter/scale_mod = Vector3(0.15625, 10, 0.277778)
+shader_parameter/scale_mod = Vector3(0.15625, 10, 0.2777778)
 shader_parameter/cube_half_size = Vector3(3.2, 0.05, 1.8)
 shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
@@ -267,13 +267,13 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="GodotOnBox" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.59291, 0.393388, 1.33072)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.59291, 0.393388, 1.4164073)
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_3xrpy")
 Skeleton = null
 skeleton = NodePath("../..")
 script = ExtResource("3_umdxf")
-size = Vector3(2, 0.5, 2)
+size = Vector3(2, 0.75, 2)
 texture = ExtResource("4_3xrpy")
 modulate = Color(1, 1, 1, 0.788235)
 albedo_mix = 0.7
