@@ -14,6 +14,8 @@ shader_type spatial;
 //render_mode world_vertex_coords, blend_mix, depth_test_disabled, depth_draw_opaque, cull_front, diffuse_lambert, specular_schlick_ggx;
 render_mode unshaded, cull_front, depth_test_disabled; // Hack
 
+stencil_mode read, compare_not_equal, 1;
+
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture ,filter_linear_mipmap;
 
 uniform sampler2D albedo : source_color, hint_default_transparent, repeat_disable, filter_linear_mipmap_anisotropic;

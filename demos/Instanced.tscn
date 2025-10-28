@@ -43,6 +43,8 @@ height = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5flai"]
 albedo_color = Color(1, 1, 0.309804, 1)
+stencil_mode = 3
+stencil_flags = 2
 
 [sub_resource type="TorusMesh" id="TorusMesh_d6ua1"]
 material = SubResource("StandardMaterial3D_5flai")
@@ -131,6 +133,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09204, -1.03409, 2.18945)
 mesh = SubResource("TorusMesh_d6ua1")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
+
+[node name="Label3D" type="Label3D" parent="Environment/Torus"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.16502, 0)
+pixel_size = 0.01
+text = "Player Stencil"
 
 [node name="CompatibilityDecals" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
