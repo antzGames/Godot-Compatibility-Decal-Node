@@ -3,11 +3,11 @@ This plugin provides both instanced and non-instanced decal node functionality f
 
 Included Demo scene:
 
-![2025-06-04 08-27-48](https://github.com/user-attachments/assets/5b13dd90-56f1-450a-a390-1be701a14f54)
+![stencil00](https://github.com/user-attachments/assets/d6378894-f7c8-4d6e-b886-b40d4e918829)
 
 1000 instanced decal bullet holes:
 
-![2025-06-04 08-34-10](https://github.com/user-attachments/assets/1e83a684-5287-4b33-8162-3dc33fcadef8)
+![stencil0](https://github.com/user-attachments/assets/ed0e4cd9-2a2e-4e97-bb2a-eb97605ce32e)
 
 ## YouTube Tutorial
 
@@ -34,7 +34,7 @@ Known limitations:
 
 The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in Decal node when targeting those renderers.
 
-Tested on Godot 4.4.1 on Windows (NVIDIA RTX 3050) and Linux (Intel Integrated Graphics) platforms.
+Tested on Godot 4.4.1 to 4.5.1.
 
 ## Features
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
