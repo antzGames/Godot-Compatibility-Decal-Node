@@ -38,7 +38,7 @@ Tested on Godot 4.4.1 to 4.5.1.
 
 ## Features
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
-- Stencil support, which allows you to exclude specific geomotry from recieving decal (such as the player).
+- Stencil support, which allows you to exclude specific geometry from recieving decal (such as the player).
 - Decals can be projected onto both floors and walls.
 - Adds two new nodes to Godot 4.5:
   - `DecalCompatibility` extends MeshInstance3D, which should be used when only one decal is needed.
