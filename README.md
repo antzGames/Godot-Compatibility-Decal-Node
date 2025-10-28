@@ -30,8 +30,6 @@ Known limitations:
 - The mesh is front-culled as a workaround to prevent decal clipping artifacts.
 (This hack addresses the issue where decals disappear when the geometry intersects.)
 
-- No cull masking. Any geometry (like a player) that moves into the decal geometry will get the decal projected on it.
-
 - No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available.
 
 The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in Decal node when targeting those renderers.
@@ -40,6 +38,7 @@ Tested on Godot 4.4.1 on Windows (NVIDIA RTX 3050) and Linux (Intel Integrated G
 
 ## Features
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
+- Stencil support, which allows you to exclude specific geomotry from recieving decal (such as the player).
 - Decals can be projected onto both floors and walls.
 - Adds two new nodes to Godot 4.5:
   - `DecalCompatibility` extends MeshInstance3D, which should be used when only one decal is needed.
@@ -100,6 +99,19 @@ unsure what this means. Video: https://youtu.be/8_vL1B_J56I
 By default both projection of the decal and fading happen on the Y-AXIS, which works great on the ground.
 
 If you need to use the decals on walls (like for the bullet holes), then you will need to rotate the decal.  It is up to you to find the normal of the wall, and rotate the decal to the proper rotation.  Watch the tutorial video if unsure what this means. Video: https://youtu.be/8_vL1B_J56I
+
+### Stencil Support 
+
+If you want specific geomotry to not recieve the decal projection, all you need to do is enable Stencil in the `StandardMaterial3D` of your player or any other object you dont want decals to be projected.
+
+You set up the stencil in the editor as you see below:
+
+<img width="874" height="551" alt="stencil1" src="https://github.com/user-attachments/assets/c9d955c3-6d55-43b0-8f5b-4e4c7db3564d" />
+
+The demos show the result below:
+
+<img width="1237" height="1252" alt="stencil3" src="https://github.com/user-attachments/assets/e9cb770b-1afc-4bb4-bb55-598400e790ed" />
+<img width="2617" height="918" alt="stencil2" src="https://github.com/user-attachments/assets/8f7618dd-b1e0-4df6-9108-bd926cc32ec2" />
 
 ## Planned Features
 
