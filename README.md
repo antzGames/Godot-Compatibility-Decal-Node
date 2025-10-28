@@ -106,7 +106,7 @@ If you want specific geomotry to not recieve the decal projection, all you need 
 
 You set up the stencil in the editor as you see below:
 
-<img width="874" height="551" alt="stencil1" src="https://github.com/user-attachments/assets/c9d955c3-6d55-43b0-8f5b-4e4c7db3564d" />
+<img width="781" height="551" alt="stencil1" src="https://github.com/user-attachments/assets/7ec173e3-f1e2-4d86-8326-5fd58c003940" />
 
 The demos show the result below:
 
