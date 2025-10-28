@@ -102,7 +102,7 @@ If you need to use the decals on walls (like for the bullet holes), then you wil
 
 ### Stencil Support 
 
-If you want specific geomotry to not recieve the decal projection, all you need to do is enable Stencil in the `StandardMaterial3D` of your player or any other object you dont want decals to be projected.
+If you want specific geometry to not recieve the decal projection, all you need to do is enable Stencil in the `StandardMaterial3D` of your player or any other object you dont want decals to be projected.
 
 You set up the stencil in the editor as you see below:
 
