@@ -23,14 +23,15 @@ sky_material = SubResource("ProceduralSkyMaterial_6kxbp")
 background_mode = 2
 sky = SubResource("Sky_kdopp")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkqtn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cpuu"]
 albedo_texture = ExtResource("2_wppxa")
-uv1_scale = Vector3(48, 48, 1)
-texture_filter = 5
+uv1_scale = Vector3(12, 12, 1)
+texture_filter = 4
 
-[sub_resource type="BoxMesh" id="BoxMesh_0miaj"]
-material = SubResource("StandardMaterial3D_tkqtn")
-size = Vector3(22, 0.5, 22)
+[sub_resource type="QuadMesh" id="QuadMesh_twex6"]
+material = SubResource("StandardMaterial3D_3cpuu")
+size = Vector2(22, 22)
+orientation = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6ua1"]
 albedo_color = Color(0, 0.615686, 1, 1)
@@ -218,8 +219,8 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Ground" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34137, -0.749068, 0)
-mesh = SubResource("BoxMesh_0miaj")
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.34137, -0.749068, 0)
+mesh = SubResource("QuadMesh_twex6")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 

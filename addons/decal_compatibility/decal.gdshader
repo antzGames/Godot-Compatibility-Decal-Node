@@ -1,34 +1,16 @@
-/*
-
-Based on Lelu's decal shader: https://godotshaders.com/shader/decal-shader-similar-to-forward-decal-but-for-compatibility-mobile/
-which is based these two shaders:
-
-TwistedTwigleg decal example shader: https://godotshaders.com/shader/decal-example/
-OlisUnfinishedProjects Decal shader: https://godotshaders.com/shader/decal-shader-4-0-port/
-
-Plumbing for normal, orm, emission textures commented out
-
-*/
-
 shader_type spatial;
-//render_mode world_vertex_coords, blend_mix, depth_test_disabled, depth_draw_opaque, cull_front, diffuse_lambert, specular_schlick_ggx;
-render_mode unshaded, cull_front, depth_test_disabled; // Hack
+render_mode unshaded, cull_disabled, depth_test_disabled;
 
+// Do not project decal on any materials
+// with custom stencil write of reference 1
 stencil_mode read, compare_not_equal, 1;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture ,filter_linear_mipmap;
 
+// Albedo texture, modulate and mix
 uniform sampler2D albedo : source_color, hint_default_transparent, repeat_disable, filter_linear_mipmap_anisotropic;
-//uniform sampler2D normal : source_color, hint_normal, repeat_disable, filter_linear_mipmap_anisotropic;
-//uniform sampler2D orm : source_color, hint_default_white, repeat_disable, filter_linear_mipmap_anisotropic;
-//uniform sampler2D emission : source_color, hint_default_transparent, repeat_disable, filter_linear_mipmap_anisotropic;
-
-// Albedo modulate and mix
 uniform vec4 modulate : source_color = vec4(1.0,1.0,1.0,1.0);
 uniform float albedo_mix : hint_range(0.0, 1.0, 0.1) = 1.0;
-
-//uniform float emission_energy : hint_range(0.0, 30, 0.1) = 1.0;
-//uniform vec4 modulate_emission : source_color = vec4(1.0,1.0,1.0,1.0);
 
 uniform vec3 scale_mod = vec3(0);
 uniform vec3 cube_half_size = vec3(0);
@@ -56,21 +38,44 @@ vec3 world_pos_from_depth(float depth, vec2 screen_uv, mat4 inverse_proj, mat4 i
 }
 
 float smooth_fade(float y_pos) {
-    // Normalize Y position (-0.5 to 0.5) -> (0 to 1)
+	// Normalize Y position (-0.5 to 0.5) -> (0 to 1)
     float normalized_y = clamp((y_pos + cube_half_size.y) / (2.0 * cube_half_size.y), 0.0, 1.0);
 
-    // Calculate fade factor
+	// Calculate fade factor
     float fade_factor = smoothstep(fade_start, fade_end, normalized_y);
     fade_factor = pow(fade_factor, fade_power);
 
     return 1.0 - fade_factor;
 }
 
+bool checkCameraClippingDecal(mat4 inv_view_matrix, mat4 inv_model_matrix) {
+	// Reconstruct camera world position
+	vec3 camera_world = (inv_view_matrix * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
+
+	// Transform to decal local space
+	vec4 camera_local = inv_model_matrix * vec4(camera_world, 1.0);
+
+	// Detect clip: camera inside decal geometry
+	return (abs(camera_local.x) < cube_half_size.x) ||
+		(abs(camera_local.y) < cube_half_size.y) ||
+		(abs(camera_local.z) < cube_half_size.z);
+}
+
 void fragment() {
+	bool clipped = checkCameraClippingDecal(INV_VIEW_MATRIX, INV_MODEL_MATRIX);
+
+	// Discard front or back side so you dont get double albedo - also speeds up rendering
+	if (!clipped && !FRONT_FACING) { // discard back
+		discard;
+	} else if (clipped && FRONT_FACING) { // discard front
+		discard;
+	}
+
 	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
 	vec3 world_pos = world_pos_from_depth(depth, SCREEN_UV, INV_PROJECTION_MATRIX, (INV_VIEW_MATRIX));
 	vec4 test_pos = (INV_MODEL_MATRIX * vec4(world_pos, 1.0));
 
+	// if decal mesh not hitting any geometry, then discard
 	if (abs(test_pos.x) > cube_half_size.x ||
 		abs(test_pos.y) > cube_half_size.y ||
 		abs(test_pos.z) > cube_half_size.z) {
@@ -78,14 +83,6 @@ void fragment() {
 	}
 
     vec2 NEW_UV = (test_pos.xz * scale_mod.xz) + 0.5;
-
-	//vec3 emission_map = texture(emission, NEW_UV).rgb;
-  	//vec3 normal_map = texture(normal, NEW_UV);
-
-	// AO = RED, orm = GREEN, METALLIC = BLUE,
-	//float ao_map = texture(orm, NEW_UV).r;
-    //float orm_map = texture(orm, NEW_UV).g;
-	//float metallic_map = texture(orm, NEW_UV).b;
 
     // Default fade factor (1.0 means no fade)
     float y_fade = 1.0;
@@ -100,10 +97,4 @@ void fragment() {
 
 	ALBEDO = texture(albedo, NEW_UV).rgb * modulate.rgb * y_fade;
 	ALPHA = texture(albedo, NEW_UV).a * modulate.a * albedo_mix * y_fade;
-
-	//NORMAL_MAP = normal_map;
-	//METALLIC = metallic_map;
-	//ROUGHNESS = orm_map;
-	//AO = ao_map;
-	//EMISSION = emission_map * emission_energy * modulate_emission.rgb * y_fade;
 }

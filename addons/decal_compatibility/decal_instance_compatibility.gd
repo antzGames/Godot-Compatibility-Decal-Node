@@ -39,21 +39,7 @@ class_name DecalInstanceCompatibility
 		texture = value
 		multimesh.mesh.material.set_shader_parameter("albedo", texture)
 		update_configuration_warnings()
-#@export var normal: Texture2D:
-	#set(value):
-		#normal = value
-		#multimesh.mesh.material.set_shader_parameter("normal", normal)
-#@export var orm: Texture2D:
-	#set(value):
-		#orm = value
-		#multimesh.mesh.material.set_shader_parameter("roughness", orm)
-#@export var emission: Texture2D:
-	#set(value):
-		#emission = value
-		#multimesh.mesh.material.set_shader_parameter("emission", emission)
 
-#@export_group("Albedo")
-#@export_range(0,16,0.01) var emission_energy: float = 1.0
 ## Colorize your Decal.  You can also modify the alpha channel.
 @export var modulate: Color = Color.WHITE:
 	set(value):

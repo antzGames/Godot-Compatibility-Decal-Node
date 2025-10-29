@@ -28,26 +28,7 @@ class_name DecalCompatibility
 		texture = value
 		mesh.material.set_shader_parameter("albedo", texture)
 		update_configuration_warnings()
-#@export var normal: Texture2D:
-	#set(value):
-		#normal = value
-		#mesh.material.set_shader_parameter("normal", normal)
-#@export var orm: Texture2D:
-	#set(value):
-		#orm = value
-		#mesh.material.set_shader_parameter("orm", orm)
-#@export var emission: Texture2D:
-	#set(value):
-		#emission = value
-		#mesh.material.set_shader_parameter("emission", emission)
 
-#@export_group("Albedo")
-#@export_range(0,16,0.01) var emission_energy: float = 1.0:
-	#set(value):
-		#if not mesh:
-			#_create_mesh()
-		#emission_energy = value
-		#mesh.material.set_shader_parameter("emission_energy", emission_energy)
 ## Colorize your Decal.  You can also modify the alpha channel.
 @export var modulate: Color = Color.WHITE:
 	set(value):
