@@ -19,12 +19,6 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 
 ## Limitations
 
-⚠️This plugin is currently experimental and not recommended for production use.
-
-🕵️ I'm seeking expert-level shader assistance to help resolve the current limitations listed below.
-
-Known limitations:
-
 - No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
 
 - Decals are unshaded (no lighting interaction).
@@ -32,9 +26,9 @@ Known limitations:
 - The mesh is front-culled as a workaround to prevent decal clipping artifacts.
 (This hack addresses the issue where decals disappear when the geometry intersects.)
 
-- No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available.
+- No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available and **only fades upward**.
 
-The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in Decal node when targeting those renderers.
+The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in `Decal` node when targeting those renderers.
 
 Tested on Godot 4.4.1 to 4.5.1.
 
@@ -42,7 +36,7 @@ Tested on Godot 4.4.1 to 4.5.1.
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
 - Stencil support, which allows you to exclude specific geometry from recieving decal (such as the player).
 - Decals can be projected onto both floors and walls.
-- Adds two new nodes to Godot 4.5:
+- Adds two new nodes to Godot:
   - `DecalCompatibility` extends MeshInstance3D, which should be used when only one decal is needed.
   - `DecalInstanceCompatibility` extends MultiMeshInstance3D, which should be used when you need large amounts of the same decal, like bullet holes.
 - No need to modify shaders—fully usable via the Godot editor Inspector.
