@@ -9,11 +9,13 @@ Included Demo scene:
 
 ![stencil0](https://github.com/user-attachments/assets/ed0e4cd9-2a2e-4e97-bb2a-eb97605ce32e)
 
-## YouTube Tutorial
+## YouTube Tutorial and Examples
 
 See the first tutorial at: https://youtu.be/8_vL1B_J56I
 
 See the demos in action and more information: https://youtu.be/8XnH3mT1C-c
+
+Example game using this plugin: https://antzgames.itch.io/little-mage
 
 ## Limitations
 
