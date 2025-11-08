@@ -17,14 +17,13 @@ See the demos in action and more information: https://youtu.be/8XnH3mT1C-c
 
 Example game using this plugin: https://antzgames.itch.io/little-mage
 
+![example1](https://github.com/user-attachments/assets/31d0e9cb-f94a-4bd3-972d-3032c1ed8136)
+
 ## Limitations
 
 - No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
 
 - Decals are unshaded (no lighting interaction).
-
-- The mesh is front-culled as a workaround to prevent decal clipping artifacts.
-(This hack addresses the issue where decals disappear when the geometry intersects.)
 
 - No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available and **only fades upward**.
 
