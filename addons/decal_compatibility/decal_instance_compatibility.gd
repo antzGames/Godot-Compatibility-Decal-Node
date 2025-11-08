@@ -8,7 +8,6 @@ class_name DecalInstanceCompatibility
 ## Remember to call [method reset_all_instances] or [method reset_instance] after
 ## fading instances.[br][br]
 ## By [b]Antz[/b] (AntzGames)
-## @experimental
 ## @tutorial(Compatibility Decal Node Plugin for Godot 4.4+ by AntzGames): https://youtu.be/8XnH3mT1C-c
 ## @tutorial(Godot Decal Node for the Compatibility Renderer by AntzGames): https://youtu.be/8_vL1B_J56I
 
