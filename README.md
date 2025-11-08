@@ -23,9 +23,6 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 
 - Decals are unshaded (no lighting interaction).
 
-- The mesh is front-culled as a workaround to prevent decal clipping artifacts.
-(This hack addresses the issue where decals disappear when the geometry intersects.)
-
 - No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available and **only fades upward**.
 
 The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in `Decal` node when targeting those renderers.
