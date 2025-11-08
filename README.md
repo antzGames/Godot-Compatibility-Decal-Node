@@ -17,6 +17,8 @@ See the demos in action and more information: https://youtu.be/8XnH3mT1C-c
 
 Example game using this plugin: https://antzgames.itch.io/little-mage
 
+![example1](https://github.com/user-attachments/assets/31d0e9cb-f94a-4bd3-972d-3032c1ed8136)
+
 ## Limitations
 
 - No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
