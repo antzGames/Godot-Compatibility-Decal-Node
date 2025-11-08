@@ -325,7 +325,7 @@ enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="MyLogoDistanceFade" type="MeshInstance3D" parent="CompatibilityDecals"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.19723, -0.475724, 7.22857)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.19723, -0.7618629, 7.22857)
 gi_lightmap_scale = 0
 visibility_range_end = 10.0
 mesh = SubResource("BoxMesh_u0d3p")
