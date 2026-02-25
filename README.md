@@ -1,5 +1,5 @@
-# Compatibility Decal Node Plugin for Godot 4.5
-This plugin provides both instanced and non-instanced decal node functionality for the Compatibility Renderer in Godot 4.5, packaged as an easy-to-use plugin.
+# Compatibility Decal Node Plugin for Godot 4
+This plugin provides both instanced and non-instanced decal node functionality for the Compatibility Renderer in Godot 4.5-4.6, packaged as an easy-to-use plugin.
 
 Included Demo scene:
 
