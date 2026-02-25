@@ -94,7 +94,7 @@ func _get_configuration_warnings(): # display the warning on the scene dock
 	if !texture:
 		warnings.push_back('No Albedo texture set.')
 	if !RenderingServer.get_current_rendering_method().begins_with("gl_"):
-		warnings.push_back('This node only works with the Compatibility renderer.')
+		warnings.push_back('Recommend you use Godots built in Decal Node')
 	return warnings
 	
 func _validate_property(property: Dictionary) -> void:

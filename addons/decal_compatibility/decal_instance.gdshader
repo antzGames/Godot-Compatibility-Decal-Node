@@ -31,7 +31,16 @@ void vertex(){
 // Credit: https://stackoverflow.com/questions/32227283/getting-world-position-from-depth-buffer-value
 vec3 world_pos_from_depth(float depth, vec2 screen_uv, mat4 inverse_proj, mat4 inverse_view) {
 	float z = depth * 2.0 - 1.0;
-	vec4 clipSpacePosition = vec4(screen_uv * 2.0 - 1.0, z, 1.0);
+	vec4 clipSpacePosition;
+	
+	#if CURRENT_RENDERER == RENDERER_COMPATIBILITY
+		clipSpacePosition = vec4(screen_uv * 2.0 - 1.0, z, 1.0);
+	#elif CURRENT_RENDERER == RENDERER_MOBILE
+		clipSpacePosition = vec4(screen_uv * 2.0 - 1.0, depth, 1.0);
+	#else // CURRENT_RENDERER == RENDERER_FORWARD_PLUS
+		clipSpacePosition = vec4(screen_uv * 2.0 - 1.0, depth, 1.0);
+	#endif
+	
 	vec4 viewSpacePosition = inverse_proj * clipSpacePosition;
 	viewSpacePosition /= viewSpacePosition.w;
 	vec4 worldSpacePosition = inverse_view * viewSpacePosition;

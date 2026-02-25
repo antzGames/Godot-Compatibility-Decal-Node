@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://05pttlflf183"]
+[gd_scene format=3 uid="uid://05pttlflf183"]
 
 [ext_resource type="Script" uid="uid://bk58odjyfawkr" path="res://demos/src/camera.gd" id="1_0miaj"]
 [ext_resource type="Script" uid="uid://dv33nxyvwjabi" path="res://demos/demo.gd" id="1_a56cn"]
@@ -185,30 +185,30 @@ instance_count = 10
 mesh = SubResource("BoxMesh_l33fo")
 buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
 
-[node name="Demo" type="Node3D"]
+[node name="Demo" type="Node3D" unique_id=1740457474]
 script = ExtResource("1_a56cn")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=157451962]
 environment = SubResource("Environment_5flai")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=129320869]
 stream = ExtResource("11_ma0ir")
 volume_db = -11.03
 max_polyphony = 5
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=90783974]
 offset_left = 4.0
 offset_top = 3.0
 offset_right = 44.0
 offset_bottom = 26.0
 metadata/_edit_lock_ = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1503562848]
 transform = Transform3D(0.692143, -0.172164, -0.700926, 0, -0.971134, 0.238533, -0.72176, -0.165099, -0.672164, 0, 3.07247, 0)
 shadow_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1620285114]
 transform = Transform3D(-0.803543, -0.277759, 0.526469, -0.0271965, 0.900661, 0.43367, -0.594626, 0.334154, -0.731274, 8.06642, 3.50017, -5.64943)
 near = 0.01
 far = 100.0
@@ -216,66 +216,66 @@ script = ExtResource("1_0miaj")
 sensitivity = 0.1
 metadata/_edit_lock_ = true
 
-[node name="Environment" type="Node3D" parent="."]
+[node name="Environment" type="Node3D" parent="." unique_id=1532379337]
 metadata/_edit_lock_ = true
 
-[node name="Ground" type="MeshInstance3D" parent="Environment"]
+[node name="Ground" type="MeshInstance3D" parent="Environment" unique_id=2110753718]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.34137, -0.749068, 0)
 mesh = SubResource("QuadMesh_twex6")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="Sphere" type="MeshInstance3D" parent="Environment"]
+[node name="Sphere" type="MeshInstance3D" parent="Environment" unique_id=318701689]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49757, -0.226564, -0.600109)
 mesh = SubResource("SphereMesh_64soo")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="Sphere2" type="MeshInstance3D" parent="Environment"]
+[node name="Sphere2" type="MeshInstance3D" parent="Environment" unique_id=441176169]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24451, -0.18583, 0.93522)
 mesh = SubResource("SphereMesh_wppxa")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="Sphere3" type="MeshInstance3D" parent="Environment"]
+[node name="Sphere3" type="MeshInstance3D" parent="Environment" unique_id=1417158201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.57029, -0.947788, 4.15267)
 mesh = SubResource("SphereMesh_wppxa")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="Sphere4" type="MeshInstance3D" parent="Environment"]
+[node name="Sphere4" type="MeshInstance3D" parent="Environment" unique_id=1417452862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24451, -0.18583, 0.93522)
 mesh = SubResource("SphereMesh_wppxa")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="Prism" type="MeshInstance3D" parent="Environment"]
+[node name="Prism" type="MeshInstance3D" parent="Environment" unique_id=1940763713]
 transform = Transform3D(0.80278, -0.0621309, 0.59303, 0.456773, 0.703368, -0.544639, -0.383279, 0.708105, 0.59303, 3.19055, -0.780062, -5.25794)
 mesh = SubResource("BoxMesh_mv2vf")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="Box" type="MeshInstance3D" parent="Environment"]
+[node name="Box" type="MeshInstance3D" parent="Environment" unique_id=1850782915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.07119, -0.18583, 2.9821858)
 mesh = SubResource("BoxMesh_umdxf")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="Torus" type="MeshInstance3D" parent="Environment"]
+[node name="Torus" type="MeshInstance3D" parent="Environment" unique_id=94950470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18455, -1.13135, 0.414456)
 mesh = SubResource("TorusMesh_d6ua1")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="Label3D" type="Label3D" parent="Environment/Torus"]
+[node name="Label3D" type="Label3D" parent="Environment/Torus" unique_id=117683612]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.239131, 0)
 pixel_size = 0.01
 text = "Player Stencil"
 
-[node name="CompatibilityDecals" type="Node3D" parent="."]
+[node name="CompatibilityDecals" type="Node3D" parent="." unique_id=1013441969]
 metadata/_edit_lock_ = true
 
-[node name="GodotOnBox" type="MeshInstance3D" parent="CompatibilityDecals"]
+[node name="GodotOnBox" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=8126188]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.59291, 0.393388, 1.4164073)
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_3xrpy")
@@ -289,7 +289,7 @@ albedo_mix = 0.7
 enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
-[node name="MovingGodot" type="MeshInstance3D" parent="CompatibilityDecals"]
+[node name="MovingGodot" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=2002209955]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.20376, 0.599118, 0)
 cast_shadow = 0
 gi_lightmap_scale = 0
@@ -301,7 +301,7 @@ albedo_mix = 0.8
 enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
-[node name="SlimeOnFloor" type="MeshInstance3D" parent="CompatibilityDecals"]
+[node name="SlimeOnFloor" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=167084798]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82018, -0.0769577, -3.16319)
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_wppxa")
@@ -311,7 +311,7 @@ size = Vector3(8, 2, 8)
 texture = ExtResource("2_0miaj")
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
-[node name="MyRotatingLogo" type="MeshInstance3D" parent="CompatibilityDecals"]
+[node name="MyRotatingLogo" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=284285666]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.19326, 0, 2.56533)
 cast_shadow = 0
 gi_lightmap_scale = 0
@@ -325,7 +325,7 @@ albedo_mix = 0.8
 enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
-[node name="MyLogoDistanceFade" type="MeshInstance3D" parent="CompatibilityDecals"]
+[node name="MyLogoDistanceFade" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=1641404520]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.19723, -0.88061917, 7.22857)
 gi_lightmap_scale = 0
 visibility_range_end = 10.0
@@ -340,12 +340,12 @@ albedo_mix = 0.9
 enable_fade = false
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
-[node name="Label3D" type="Label3D" parent="CompatibilityDecals/MyLogoDistanceFade"]
+[node name="Label3D" type="Label3D" parent="CompatibilityDecals/MyLogoDistanceFade" unique_id=1602268222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16502, 0)
 pixel_size = 0.01
 text = "Distance Test"
 
-[node name="BulletHoles" type="MultiMeshInstance3D" parent="CompatibilityDecals"]
+[node name="BulletHoles" type="MultiMeshInstance3D" parent="CompatibilityDecals" unique_id=282449445]
 cast_shadow = 0
 gi_lightmap_scale = 0
 multimesh = SubResource("MultiMesh_hp8nf")

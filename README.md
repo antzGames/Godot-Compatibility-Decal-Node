@@ -27,9 +27,9 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 
 - No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available and **only fades upward**.
 
-The nodes do not work with the Forward+ or Mobile renderers. Use Godot's built-in `Decal` node when targeting those renderers.
+As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile renderers, but it is strongly recommended that you use Godot's built-in `Decal` node when targeting those renderers.
 
-Tested on Godot 4.4.1 to 4.5.1.
+Tested on Godot 4.4.1 to 4.6.1.
 
 ## Features
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
