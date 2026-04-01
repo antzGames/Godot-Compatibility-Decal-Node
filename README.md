@@ -1,5 +1,5 @@
 > [!IMPORTANT]  
-> There is currently a PR to get Decal support for the Compatibility Renderer, with the same support as the Mobile renderer (Max 8 decals per surface): https://github.com/godotengine/godot/pull/118070 which will close https://github.com/godotengine/godot-proposals/discussions/12903 which I actively was trying to push.  Once introduced, this project is no longer needed, which is great news!
+> There is currently a PR to get Decal support for the Compatibility Renderer, with the same support as the Mobile renderer (Max 8 decals per surface): https://github.com/godotengine/godot/pull/118070 which will close https://github.com/godotengine/godot-proposals/discussions/12903 which I actively was trying to push.  If you need to project thousands of decals on a mesh, then my solution might still be helpful.
 
 # Compatibility Decal Node Plugin for Godot 4
 This plugin provides both instanced and non-instanced decal node functionality for the Compatibility Renderer in Godot 4.4-4.6, packaged as an easy-to-use plugin.
