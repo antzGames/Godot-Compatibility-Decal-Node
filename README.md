@@ -1,8 +1,10 @@
 > [!IMPORTANT]  
-> There is currently a PR to get Decal support for the Compatibility Renderer, with the same support as the Mobile renderer (Max 8 decals per surface): https://github.com/godotengine/godot/pull/118070 which will close https://github.com/godotengine/godot-proposals/discussions/12903 which I actively was trying to push.  If you need to project thousands of decals on a mesh, then my solution might still be helpful.
+> There is currently a PR to get Decal support for the Compatibility Renderer, with the same support as the Mobile renderer (Max 8 decals per surface, max 64 decals per frame): https://github.com/godotengine/godot/pull/118070 which will close https://github.com/godotengine/godot-proposals/discussions/12903 which I actively was trying to push.  If you need to project thousands of decals on a mesh, then my solution is still helpful.
 
 # Compatibility Decal Node Plugin for Godot 4
 This plugin provides both instanced and non-instanced decal node functionality for the Compatibility Renderer in Godot 4.4-4.6, packaged as an easy-to-use plugin.
+
+Allows thousands of decals to be drawn with one draw call and performs well.  No limits set, unlike Godot's Compatibility/Mobile Decal limits of Max 8 decals per surface and max 64 decals per frame.
 
 Included Demo scene:
 
@@ -27,6 +29,7 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 ![example1](https://github.com/user-attachments/assets/31d0e9cb-f94a-4bd3-972d-3032c1ed8136)
 
 ## Features
+- **`No limits`** like 8 decals per mesh, or 64 decals per frame.  You can use thousands of decals with my solution even with the Mobile Renderer.
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
 - Stencil support, which allows you to exclude specific geometry from recieving decal (such as the player).
 - Decals can be projected onto both floors and walls.
@@ -52,8 +55,6 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 
 - No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
 - Decals are unshaded (no lighting interaction).
-- No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available and **only fades upward**.
-- Flipbook animation support only includes looping.  No one shot support.
 
 As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile renderers, but it is strongly recommended that you use Godot's built-in `Decal` node when targeting those renderers.
 
