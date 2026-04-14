@@ -4,7 +4,7 @@ This plugin provides both instanced and non-instanced animated decal node functi
 Allows thousands of decals to be drawn with one draw call and performs well.  No limits set, unlike Godot's Compatibility/Mobile Decal limits of Max 8 decals per surface and max 64 decals per frame.
 
 > [!IMPORTANT]  
-> There is currently a PR to get Decal support for the Compatibility Renderer, with the same support as the Mobile renderer (Max 8 decals per surface, max 64 decals per frame): https://github.com/godotengine/godot/pull/118070 which will close https://github.com/godotengine/godot-proposals/discussions/12903 which I actively was trying to push.  If you need to project thousands of decals on a mesh, then my solution is still helpful.
+> There is currently a PR to get Decal support for the Compatibility Renderer, with the same support as the Mobile renderer (Max 8 decals per surface, max 64 decals per frame): https://github.com/godotengine/godot/pull/118070 which will close https://github.com/godotengine/godot-proposals/discussions/12903 which I actively was trying to push.  If you need to project thousands of decals on a mesh, then my solution is a good option.
 
 Included Demo scene:
 
@@ -56,7 +56,7 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 - No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
 - Decals are unshaded (no lighting interaction).
 
-As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile renderers, but it is strongly recommended that you use Godot's built-in `Decal` node when targeting those renderers.
+As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile renderers, but it is strongly recommended that you use Godot's built-in `Decal` node when targeting the Forward+ renderer.  As for the Mobile renderer, Godot's official Decal implementation might be too restrictive for your project, so you might want to try this implementation.
 
 Tested on Godot 4.4.1 to 4.6.2.
 
