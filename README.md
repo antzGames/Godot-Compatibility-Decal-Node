@@ -25,10 +25,9 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 ## Limitations
 
 - No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
-
 - Decals are unshaded (no lighting interaction).
-
 - No support for fading curves (start/end with curvature). Only basic start, end, and power levels are available and **only fades upward**.
+- Flipbook animation support only includes looping.  No one shot support.
 
 As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile renderers, but it is strongly recommended that you use Godot's built-in `Decal` node when targeting those renderers.
 
@@ -38,6 +37,7 @@ Tested on Godot 4.4.1 to 4.6.1.
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
 - Stencil support, which allows you to exclude specific geometry from recieving decal (such as the player).
 - Decals can be projected onto both floors and walls.
+- Flipbook animation support, with speed control.
 - Adds two new nodes to Godot:
   - `DecalCompatibility` extends MeshInstance3D, which should be used when only one decal is needed.
   - `DecalInstanceCompatibility` extends MultiMeshInstance3D, which should be used when you need large amounts of the same decal, like bullet holes.

@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://05pttlflf183"]
 
-[ext_resource type="Script" uid="uid://bk58odjyfawkr" path="res://demos/src/camera.gd" id="1_0miaj"]
-[ext_resource type="Script" uid="uid://dv33nxyvwjabi" path="res://demos/demo.gd" id="1_a56cn"]
-[ext_resource type="Shader" uid="uid://foqf6idimvb0" path="res://addons/decal_compatibility/decal.gdshader" id="1_umdxf"]
-[ext_resource type="Texture2D" uid="uid://c3wmc6bn7ua77" path="res://assets/decal_textures/Alien Surface 01_BaseColor.jpg" id="2_0miaj"]
-[ext_resource type="Texture2D" uid="uid://bjgl15l6fx00f" path="res://assets/environment/floor.png" id="2_wppxa"]
-[ext_resource type="Texture2D" uid="uid://b1weya5tioumr" path="res://assets/environment/wall.png" id="3_5flai"]
-[ext_resource type="Script" uid="uid://feckn7f3pmud" path="res://addons/decal_compatibility/decal_compatibility.gd" id="3_umdxf"]
-[ext_resource type="Texture2D" uid="uid://dvqxuqxsbx11e" path="res://assets/decal_textures/Godot_icon.png" id="4_3xrpy"]
-[ext_resource type="Texture2D" uid="uid://dwwqhljh8l8t3" path="res://assets/decal_textures/bullethole.png" id="7_6kxbp"]
-[ext_resource type="Texture2D" uid="uid://bv2kjwha3158k" path="res://assets/decal_textures/loading.png" id="8_kdopp"]
-[ext_resource type="AudioStream" uid="uid://xdbr2j80hmdw" path="res://assets/gun-fire.mp3" id="11_ma0ir"]
-[ext_resource type="Shader" uid="uid://0ysverksjyo3" path="res://addons/decal_compatibility/decal_instance.gdshader" id="11_twex6"]
-[ext_resource type="Script" uid="uid://bw6heqxc8r4tx" path="res://addons/decal_compatibility/decal_instance_compatibility.gd" id="12_c6bat"]
+[ext_resource type="Script" uid="uid://dv33nxyvwjabi" path="res://demos/demo.gd" id="1_sgesv"]
+[ext_resource type="PackedScene" uid="uid://bkr6xipe4t31s" path="res://demos/instanced_flipbook.tscn" id="2_lkke3"]
+[ext_resource type="AudioStream" uid="uid://xdbr2j80hmdw" path="res://assets/gun-fire.mp3" id="2_m34tk"]
+[ext_resource type="Script" uid="uid://bk58odjyfawkr" path="res://demos/src/camera.gd" id="3_xrw6x"]
+[ext_resource type="Texture2D" uid="uid://bjgl15l6fx00f" path="res://assets/environment/floor.png" id="4_lkke3"]
+[ext_resource type="Texture2D" uid="uid://b1weya5tioumr" path="res://assets/environment/wall.png" id="5_o6e2u"]
+[ext_resource type="Shader" uid="uid://foqf6idimvb0" path="res://addons/decal_compatibility/decal.gdshader" id="6_fe1yc"]
+[ext_resource type="Texture2D" uid="uid://dvqxuqxsbx11e" path="res://assets/decal_textures/Godot_icon.png" id="7_wn76c"]
+[ext_resource type="Script" uid="uid://feckn7f3pmud" path="res://addons/decal_compatibility/decal_compatibility.gd" id="8_x6wuc"]
+[ext_resource type="Texture2D" uid="uid://c3wmc6bn7ua77" path="res://assets/decal_textures/Alien Surface 01_BaseColor.jpg" id="9_pwpfi"]
+[ext_resource type="Texture2D" uid="uid://bv2kjwha3158k" path="res://assets/decal_textures/loading.png" id="10_kyxvf"]
+[ext_resource type="Shader" uid="uid://0ysverksjyo3" path="res://addons/decal_compatibility/decal_instance.gdshader" id="11_m8qop"]
+[ext_resource type="Texture2D" uid="uid://dwwqhljh8l8t3" path="res://assets/decal_textures/bullethole.png" id="12_qysy6"]
+[ext_resource type="Script" uid="uid://bw6heqxc8r4tx" path="res://addons/decal_compatibility/decal_instance_compatibility.gd" id="13_6ewuf"]
+[ext_resource type="Texture2D" uid="uid://bcjbopus3vin0" path="res://assets/decal_textures/T_fire_flipbook4_sm.png" id="14_3wikd"]
+[ext_resource type="Texture2D" uid="uid://vfenvuoaq8vj" path="res://assets/decal_textures/spryte-walk.png" id="15_m34tk"]
+[ext_resource type="Texture2D" uid="uid://d4cnsoyk0ia3f" path="res://assets/decal_textures/633.png" id="16_xrw6x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6kxbp"]
 
@@ -25,7 +29,7 @@ sky = SubResource("Sky_kdopp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cpuu"]
 cull_mode = 2
-albedo_texture = ExtResource("2_wppxa")
+albedo_texture = ExtResource("4_lkke3")
 uv1_scale = Vector3(12, 12, 1)
 texture_filter = 4
 
@@ -58,7 +62,7 @@ material = SubResource("StandardMaterial3D_uj38w")
 size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0d3p"]
-albedo_texture = ExtResource("3_5flai")
+albedo_texture = ExtResource("5_o6e2u")
 uv1_scale = Vector3(6, 18, 6)
 texture_filter = 5
 
@@ -78,8 +82,8 @@ outer_radius = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wppxa"]
 render_priority = 0
-shader = ExtResource("1_umdxf")
-shader_parameter/albedo = ExtResource("4_3xrpy")
+shader = ExtResource("6_fe1yc")
+shader_parameter/albedo = ExtResource("7_wn76c")
 shader_parameter/modulate = Color(1, 1, 1, 0.788235)
 shader_parameter/albedo_mix = 0.7
 shader_parameter/scale_mod = Vector3(0.5, 1.3333334, 0.5)
@@ -88,6 +92,12 @@ shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = false
+shader_parameter/is_one_shot = false
+shader_parameter/time_stamp = 0.0
+shader_parameter/x_frames = 1
+shader_parameter/y_frames = 1
+shader_parameter/flipbook_speed = 12.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_3xrpy"]
 material = SubResource("ShaderMaterial_wppxa")
@@ -95,8 +105,8 @@ size = Vector3(2, 0.75, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twex6"]
 render_priority = 0
-shader = ExtResource("1_umdxf")
-shader_parameter/albedo = ExtResource("4_3xrpy")
+shader = ExtResource("6_fe1yc")
+shader_parameter/albedo = ExtResource("7_wn76c")
 shader_parameter/modulate = Color(1, 1, 1, 1)
 shader_parameter/albedo_mix = 0.8
 shader_parameter/scale_mod = Vector3(0.5, 0.5, 0.5)
@@ -105,6 +115,12 @@ shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = false
+shader_parameter/is_one_shot = false
+shader_parameter/time_stamp = 0.0
+shader_parameter/x_frames = 1
+shader_parameter/y_frames = 1
+shader_parameter/flipbook_speed = 12.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_c6bat"]
 material = SubResource("ShaderMaterial_twex6")
@@ -112,8 +128,8 @@ size = Vector3(2, 2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umdxf"]
 render_priority = 0
-shader = ExtResource("1_umdxf")
-shader_parameter/albedo = ExtResource("2_0miaj")
+shader = ExtResource("6_fe1yc")
+shader_parameter/albedo = ExtResource("9_pwpfi")
 shader_parameter/modulate = Color(1, 1, 1, 1)
 shader_parameter/albedo_mix = 1.0
 shader_parameter/scale_mod = Vector3(0.125, 0.5, 0.125)
@@ -122,6 +138,12 @@ shader_parameter/enable_y_fade = true
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = false
+shader_parameter/is_one_shot = false
+shader_parameter/time_stamp = 0.0
+shader_parameter/x_frames = 1
+shader_parameter/y_frames = 1
+shader_parameter/flipbook_speed = 12.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_wppxa"]
 material = SubResource("ShaderMaterial_umdxf")
@@ -129,8 +151,8 @@ size = Vector3(8, 2, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a56cn"]
 render_priority = 0
-shader = ExtResource("1_umdxf")
-shader_parameter/albedo = ExtResource("8_kdopp")
+shader = ExtResource("6_fe1yc")
+shader_parameter/albedo = ExtResource("10_kyxvf")
 shader_parameter/modulate = Color(1, 1, 1, 0.901961)
 shader_parameter/albedo_mix = 0.8
 shader_parameter/scale_mod = Vector3(0.15625, 0.5, 0.2777778)
@@ -139,6 +161,12 @@ shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = false
+shader_parameter/is_one_shot = false
+shader_parameter/time_stamp = 0.0
+shader_parameter/x_frames = 1
+shader_parameter/y_frames = 1
+shader_parameter/flipbook_speed = 12.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_ma0ir"]
 material = SubResource("ShaderMaterial_a56cn")
@@ -146,8 +174,8 @@ size = Vector3(6.4, 2, 3.6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5flai"]
 render_priority = 0
-shader = ExtResource("1_umdxf")
-shader_parameter/albedo = ExtResource("8_kdopp")
+shader = ExtResource("6_fe1yc")
+shader_parameter/albedo = ExtResource("10_kyxvf")
 shader_parameter/modulate = Color(1, 1, 1, 0.729412)
 shader_parameter/albedo_mix = 0.9
 shader_parameter/scale_mod = Vector3(0.15625, 1, 0.2777778)
@@ -156,6 +184,12 @@ shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = false
+shader_parameter/is_one_shot = false
+shader_parameter/time_stamp = 0.0
+shader_parameter/x_frames = 1
+shader_parameter/y_frames = 1
+shader_parameter/flipbook_speed = 12.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_u0d3p"]
 material = SubResource("ShaderMaterial_5flai")
@@ -163,8 +197,8 @@ size = Vector3(6.4, 1, 3.6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v2kpa"]
 render_priority = 0
-shader = ExtResource("11_twex6")
-shader_parameter/albedo = ExtResource("7_6kxbp")
+shader = ExtResource("11_m8qop")
+shader_parameter/albedo = ExtResource("12_qysy6")
 shader_parameter/modulate = Color(1, 1, 1, 0.901961)
 shader_parameter/albedo_mix = 0.9
 shader_parameter/scale_mod = Vector3(2, 1, 2)
@@ -173,6 +207,11 @@ shader_parameter/enable_y_fade = false
 shader_parameter/fade_start = 0.3
 shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = false
+shader_parameter/is_one_shot = false
+shader_parameter/x_frames = 1
+shader_parameter/y_frames = 1
+shader_parameter/flipbook_speed = 12.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_l33fo"]
 material = SubResource("ShaderMaterial_v2kpa")
@@ -183,25 +222,112 @@ transform_format = 1
 use_custom_data = true
 instance_count = 10
 mesh = SubResource("BoxMesh_l33fo")
-buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l33fo"]
+render_priority = 0
+shader = ExtResource("6_fe1yc")
+shader_parameter/albedo = ExtResource("14_3wikd")
+shader_parameter/modulate = Color(0.0627451, 0.59607846, 0.39607844, 1)
+shader_parameter/albedo_mix = 0.5
+shader_parameter/scale_mod = Vector3(0.25, 0.5, 0.25)
+shader_parameter/cube_half_size = Vector3(2, 1, 2)
+shader_parameter/enable_y_fade = false
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
+shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = true
+shader_parameter/is_one_shot = true
+shader_parameter/time_stamp = 0.0
+shader_parameter/x_frames = 5
+shader_parameter/y_frames = 5
+shader_parameter/flipbook_speed = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_hp8nf"]
+material = SubResource("ShaderMaterial_l33fo")
+size = Vector3(4, 2, 4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6e2u"]
+render_priority = 0
+shader = ExtResource("6_fe1yc")
+shader_parameter/albedo = ExtResource("14_3wikd")
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/albedo_mix = 1.0
+shader_parameter/scale_mod = Vector3(0.5, 0.5, 0.5)
+shader_parameter/cube_half_size = Vector3(1, 1, 1)
+shader_parameter/enable_y_fade = false
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
+shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = true
+shader_parameter/is_one_shot = true
+shader_parameter/time_stamp = 0.0
+shader_parameter/x_frames = 5
+shader_parameter/y_frames = 5
+shader_parameter/flipbook_speed = 25.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_fe1yc"]
+material = SubResource("ShaderMaterial_o6e2u")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrw6x"]
+render_priority = 0
+shader = ExtResource("6_fe1yc")
+shader_parameter/albedo = ExtResource("15_m34tk")
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/albedo_mix = 1.0
+shader_parameter/scale_mod = Vector3(0.5, 0.5, 0.5)
+shader_parameter/cube_half_size = Vector3(1, 1, 1)
+shader_parameter/enable_y_fade = false
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
+shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = true
+shader_parameter/is_one_shot = false
+shader_parameter/time_stamp = 0.0
+shader_parameter/x_frames = 5
+shader_parameter/y_frames = 5
+shader_parameter/flipbook_speed = 15.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_lkke3"]
+material = SubResource("ShaderMaterial_xrw6x")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkke3"]
+render_priority = 0
+shader = ExtResource("6_fe1yc")
+shader_parameter/albedo = ExtResource("16_xrw6x")
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/albedo_mix = 1.0
+shader_parameter/scale_mod = Vector3(1, 0.5, 1)
+shader_parameter/cube_half_size = Vector3(0.5, 1, 0.5)
+shader_parameter/enable_y_fade = false
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
+shader_parameter/fade_power = 1.0
+shader_parameter/is_flipbook = true
+shader_parameter/is_one_shot = false
+shader_parameter/time_stamp = 0.0
+shader_parameter/x_frames = 15
+shader_parameter/y_frames = 9
+shader_parameter/flipbook_speed = 15.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_o6e2u"]
+material = SubResource("ShaderMaterial_lkke3")
+size = Vector3(1, 2, 1)
 
 [node name="Demo" type="Node3D" unique_id=1740457474]
-script = ExtResource("1_a56cn")
+script = ExtResource("1_sgesv")
+title = "Features Demo"
+next_scene = ExtResource("2_lkke3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=157451962]
 environment = SubResource("Environment_5flai")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=129320869]
-stream = ExtResource("11_ma0ir")
+stream = ExtResource("2_m34tk")
 volume_db = -11.03
 max_polyphony = 5
-
-[node name="Label" type="Label" parent="." unique_id=90783974]
-offset_left = 4.0
-offset_top = 3.0
-offset_right = 44.0
-offset_bottom = 26.0
-metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1503562848]
 transform = Transform3D(0.692143, -0.172164, -0.700926, 0, -0.971134, 0.238533, -0.72176, -0.165099, -0.672164, 0, 3.07247, 0)
@@ -212,7 +338,7 @@ metadata/_edit_lock_ = true
 transform = Transform3D(-0.803543, -0.277759, 0.526469, -0.0271965, 0.900661, 0.43367, -0.594626, 0.334154, -0.731274, 8.06642, 3.50017, -5.64943)
 near = 0.01
 far = 100.0
-script = ExtResource("1_0miaj")
+script = ExtResource("3_xrw6x")
 sensitivity = 0.1
 metadata/_edit_lock_ = true
 
@@ -249,6 +375,16 @@ mesh = SubResource("SphereMesh_wppxa")
 skeleton = NodePath("../..")
 metadata/_edit_lock_ = true
 
+[node name="Sphere5" type="MeshInstance3D" parent="Environment" unique_id=1518974008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1086636, -1.2754885, -3.3043568)
+mesh = SubResource("SphereMesh_64soo")
+skeleton = NodePath("../../..")
+
+[node name="Sphere6" type="MeshInstance3D" parent="Environment" unique_id=1430906618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.361724, -1.2347544, -1.7690277)
+mesh = SubResource("SphereMesh_wppxa")
+skeleton = NodePath("../../..")
+
 [node name="Prism" type="MeshInstance3D" parent="Environment" unique_id=1940763713]
 transform = Transform3D(0.80278, -0.0621309, 0.59303, 0.456773, 0.703368, -0.544639, -0.383279, 0.708105, 0.59303, 3.19055, -0.780062, -5.25794)
 mesh = SubResource("BoxMesh_mv2vf")
@@ -281,12 +417,12 @@ gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_3xrpy")
 Skeleton = null
 skeleton = NodePath("../..")
-script = ExtResource("3_umdxf")
+script = ExtResource("8_x6wuc")
 size = Vector3(2, 0.75, 2)
-texture = ExtResource("4_3xrpy")
+texture = ExtResource("7_wn76c")
 modulate = Color(1, 1, 1, 0.788235)
 albedo_mix = 0.7
-enable_fade = false
+is_one_shot = null
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="MovingGodot" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=2002209955]
@@ -295,10 +431,10 @@ cast_shadow = 0
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_c6bat")
 Skeleton = null
-script = ExtResource("3_umdxf")
-texture = ExtResource("4_3xrpy")
+script = ExtResource("8_x6wuc")
+texture = ExtResource("7_wn76c")
 albedo_mix = 0.8
-enable_fade = false
+is_one_shot = null
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="SlimeOnFloor" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=167084798]
@@ -306,9 +442,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82018, -0.0769577, -3.16319
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_wppxa")
 Skeleton = null
-script = ExtResource("3_umdxf")
+script = ExtResource("8_x6wuc")
 size = Vector3(8, 2, 8)
-texture = ExtResource("2_0miaj")
+texture = ExtResource("9_pwpfi")
+is_one_shot = null
+enable_fade = true
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="MyRotatingLogo" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=284285666]
@@ -317,12 +455,12 @@ cast_shadow = 0
 gi_lightmap_scale = 0
 mesh = SubResource("BoxMesh_ma0ir")
 Skeleton = null
-script = ExtResource("3_umdxf")
+script = ExtResource("8_x6wuc")
 size = Vector3(6.4, 2, 3.6)
-texture = ExtResource("8_kdopp")
+texture = ExtResource("10_kyxvf")
 modulate = Color(1, 1, 1, 0.901961)
 albedo_mix = 0.8
-enable_fade = false
+is_one_shot = null
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="MyLogoDistanceFade" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=1641404520]
@@ -332,12 +470,12 @@ visibility_range_end = 10.0
 mesh = SubResource("BoxMesh_u0d3p")
 Skeleton = null
 skeleton = NodePath("../..")
-script = ExtResource("3_umdxf")
+script = ExtResource("8_x6wuc")
 size = Vector3(6.4, 1, 3.6)
-texture = ExtResource("8_kdopp")
+texture = ExtResource("10_kyxvf")
 modulate = Color(1, 1, 1, 0.729412)
 albedo_mix = 0.9
-enable_fade = false
+is_one_shot = null
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="Label3D" type="Label3D" parent="CompatibilityDecals/MyLogoDistanceFade" unique_id=1602268222]
@@ -349,11 +487,106 @@ text = "Distance Test"
 cast_shadow = 0
 gi_lightmap_scale = 0
 multimesh = SubResource("MultiMesh_hp8nf")
-script = ExtResource("12_c6bat")
+script = ExtResource("13_6ewuf")
 size = Vector3(0.5, 1, 0.5)
 instance_count = 10
-texture = ExtResource("7_6kxbp")
+texture = ExtResource("12_qysy6")
 modulate = Color(1, 1, 1, 0.901961)
 albedo_mix = 0.9
-enable_fade = false
+is_one_shot = null
 metadata/_custom_type_script = "uid://bw6heqxc8r4tx"
+
+[node name="GreenGasFlipBook" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=758310647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9385314, -0.20732975, -3.039528)
+cast_shadow = 0
+gi_lightmap_scale = 0
+mesh = SubResource("BoxMesh_hp8nf")
+Skeleton = null
+script = ExtResource("8_x6wuc")
+size = Vector3(4, 2, 4)
+texture = ExtResource("14_3wikd")
+modulate = Color(0.0627451, 0.59607846, 0.39607844, 1)
+albedo_mix = 0.5
+is_flipbook = true
+is_one_shot = true
+x_frames = 5
+y_frames = 5
+flipbook_speed = 5.0
+metadata/_custom_type_script = "uid://feckn7f3pmud"
+
+[node name="ExplosionFlipBook" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=1000528060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.806383, -0.8393078, 3.2836561)
+cast_shadow = 0
+gi_lightmap_scale = 0
+mesh = SubResource("BoxMesh_fe1yc")
+Skeleton = null
+script = ExtResource("8_x6wuc")
+texture = ExtResource("14_3wikd")
+is_flipbook = true
+is_one_shot = true
+x_frames = 5
+y_frames = 5
+flipbook_speed = 25.0
+metadata/_custom_type_script = "uid://feckn7f3pmud"
+
+[node name="WalkingGirlFlipBook" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=1501542134]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.070214, 3.463328, 2.0296326)
+cast_shadow = 0
+gi_lightmap_scale = 0
+mesh = SubResource("BoxMesh_lkke3")
+Skeleton = null
+script = ExtResource("8_x6wuc")
+texture = ExtResource("15_m34tk")
+is_flipbook = true
+is_one_shot = null
+x_frames = 5
+y_frames = 5
+flipbook_speed = 15.0
+metadata/_custom_type_script = "uid://feckn7f3pmud"
+
+[node name="SkullFlipBook" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=100102122]
+transform = Transform3D(-0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071067, 2.8482008, 0.9872017, -1.5375948)
+cast_shadow = 0
+gi_lightmap_scale = 0
+mesh = SubResource("BoxMesh_o6e2u")
+Skeleton = null
+script = ExtResource("8_x6wuc")
+size = Vector3(1, 2, 1)
+texture = ExtResource("16_xrw6x")
+is_flipbook = true
+x_frames = 15
+y_frames = 9
+flipbook_speed = 15.0
+metadata/_custom_type_script = "uid://feckn7f3pmud"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=125693166]
+
+[node name="Info" type="Label" parent="UI" unique_id=799121102]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -154.0
+offset_right = 154.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Press [SPACE] or [F1] to load next scene.
+[ESC] to exit application (Desktop Only)."
+
+[node name="Title" type="Label" parent="UI" unique_id=642043784]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
+
+[node name="Label" type="Label" parent="UI" unique_id=1859343458]
+offset_right = 40.0
+offset_bottom = 23.0

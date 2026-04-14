@@ -11,6 +11,8 @@ class_name DecalInstanceCompatibility
 ## @tutorial(Compatibility Decal Node Plugin for Godot 4.4+ by AntzGames): https://youtu.be/8XnH3mT1C-c
 ## @tutorial(Godot Decal Node for the Compatibility Renderer by AntzGames): https://youtu.be/8_vL1B_J56I
 
+var _rollover_value : float = ProjectSettings.get_setting("rendering/limits/time/time_rollover_secs")
+
 ## The size of the [BoxMesh] that will be used to draw the decal.
 @export var size: Vector3 = Vector3(2,2,2):
 	set(value):
@@ -54,9 +56,43 @@ class_name DecalInstanceCompatibility
 		albedo_mix = value
 		multimesh.mesh.material.set_shader_parameter("albedo_mix", albedo_mix)
 
+@export_group("FlipBook")
+## Enable/Disable flipbook animation
+@export var is_flipbook: bool = false:
+	set(value):
+		if not multimesh:
+			_create_multimesh()
+		is_flipbook = value
+		multimesh.mesh.material.set_shader_parameter("is_flipbook", is_flipbook)
+## Enable/Disable one shot animation, will always play last frame after animation completion
+@export var is_one_shot: bool = false:
+	set(value):
+		if not multimesh:
+			_create_multimesh()
+		is_one_shot = value
+		multimesh.mesh.material.set_shader_parameter("is_one_shot", is_one_shot)
+@export var x_frames: int = 1:
+	set(value):
+		if not multimesh:
+			_create_multimesh()
+		x_frames = value
+		multimesh.mesh.material.set_shader_parameter("x_frames", x_frames)
+@export var y_frames: int = 1:
+	set(value):
+		if not multimesh:
+			_create_multimesh()
+		y_frames = value
+		multimesh.mesh.material.set_shader_parameter("y_frames", y_frames)
+@export_range(1.0,60.0, 0.1) var flipbook_speed: float = 12.0:
+	set(value):
+		if not multimesh:
+			_create_multimesh()
+		flipbook_speed = value
+		multimesh.mesh.material.set_shader_parameter("flipbook_speed", flipbook_speed)
+
 @export_group("Vertical Fade")
 ## Enable/disable fading.
-@export var enable_fade: bool = true:
+@export var enable_fade: bool = false:
 	set(value):
 		if not multimesh:
 			_create_multimesh()
@@ -117,6 +153,7 @@ func reset_all_instances():
 ## [param instance_id] is the specific instance to reset.
 func reset_instance(instance_id: int):
 	var custom_data: Color = multimesh.get_instance_custom_data(instance_id)
+	custom_data.r = get_current_timestamp()
 	custom_data.a = 1.0
 	multimesh.set_instance_custom_data(instance_id, custom_data)
 
@@ -183,3 +220,13 @@ func _validate_property(property: Dictionary) -> void:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	#else:
 		#print(property)
+
+func reset_one_shot(instance_id: int):
+	if !is_one_shot: return
+	
+	var custom_data: Color = multimesh.get_instance_custom_data(instance_id)
+	custom_data.r = get_current_timestamp()
+	multimesh.set_instance_custom_data(instance_id, custom_data)
+
+func get_current_timestamp() -> float:
+	return fmod((float(Time.get_ticks_msec()) / 1000.0), _rollover_value) - 0.5

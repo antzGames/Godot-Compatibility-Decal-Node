@@ -10,6 +10,8 @@ class_name DecalCompatibility
 ## @tutorial(Compatibility Decal Node Plugin for Godot 4.4+ by AntzGames): https://youtu.be/8XnH3mT1C-c
 ## @tutorial(Godot Decal Node for the Compatibility Renderer by AntzGames): https://youtu.be/8_vL1B_J56I
 
+var _rollover_value : float = ProjectSettings.get_setting("rendering/limits/time/time_rollover_secs")
+
 ## The size of the [BoxMesh] that will be used to draw the decal.
 @export var size: Vector3 = Vector3(2,2,2):
 	set(value):
@@ -43,9 +45,43 @@ class_name DecalCompatibility
 		albedo_mix = value
 		mesh.material.set_shader_parameter("albedo_mix", albedo_mix)
 
+@export_group("FlipBook")
+## Enable/Disable flipbook animation
+@export var is_flipbook: bool = false:
+	set(value):
+		if not mesh:
+			_create_mesh()
+		is_flipbook = value
+		mesh.material.set_shader_parameter("is_flipbook", is_flipbook)
+## Enable/Disable one shot animation, will always play last frame after animation completion
+@export var is_one_shot: bool = false:
+	set(value):
+		if not mesh:
+			_create_mesh()
+		is_one_shot = value
+		mesh.material.set_shader_parameter("is_one_shot", is_one_shot)
+@export var x_frames: int = 1:
+	set(value):
+		if not mesh:
+			_create_mesh()
+		x_frames = value
+		mesh.material.set_shader_parameter("x_frames", x_frames)
+@export var y_frames: int = 1:
+	set(value):
+		if not mesh:
+			_create_mesh()
+		y_frames = value
+		mesh.material.set_shader_parameter("y_frames", y_frames)
+@export_range(1.0,60.0, 0.1) var flipbook_speed: float = 12.0:
+	set(value):
+		if not mesh:
+			_create_mesh()
+		flipbook_speed = value
+		mesh.material.set_shader_parameter("flipbook_speed", flipbook_speed)
+
 @export_group("Vertical Fade")
 ## Enable/disable fading.
-@export var enable_fade: bool = true:
+@export var enable_fade: bool = false:
 	set(value):
 		if not mesh:
 			_create_mesh()
@@ -121,3 +157,33 @@ func _validate_property(property: Dictionary) -> void:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	elif property.name.begins_with("Surface"):
 		property.usage = PROPERTY_USAGE_NO_EDITOR
+		
+## Fade out the decal.[br][br]
+## [param fade_out_time] the duration of the fade.[br]
+## [param start_delay] is the delay before fade starts.
+func fade_out_instance(fade_out_time: float = 1.0, start_delay: float = 0.0):
+	if fade_out_time < 0: return
+	if modulate.a <= 0: return
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_method(_do_tween_fade.bind(), modulate.a, 0, fade_out_time).set_delay(start_delay)
+
+## Fade in the decal.[br][br]
+## [param fade_out_time] the duration of the fade.[br]
+## [param start_delay] is the delay before fade starts.
+func fade_in_instance(fade_in_time: float = 1.0, start_delay: float = 0.0):
+	if fade_in_time < 0: return
+	if modulate.a > 1: return
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_method(_do_tween_fade.bind(), modulate.a, 1, fade_in_time).set_delay(start_delay)
+
+func _do_tween_fade(value: float):
+	modulate.a = value
+
+func reset_one_shot():
+	if !is_one_shot: return
+	mesh.material.set_shader_parameter("time_stamp", get_current_timestamp())
+
+func get_current_timestamp() -> float:
+	return fmod((float(Time.get_ticks_msec()) / 1000.0), _rollover_value) - 0.5

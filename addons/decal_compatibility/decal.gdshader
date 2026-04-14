@@ -5,10 +5,10 @@ render_mode unshaded, cull_disabled, depth_test_disabled;
 // with custom stencil write of reference 1
 stencil_mode read, compare_not_equal, 1;
 
-uniform sampler2D DEPTH_TEXTURE : hint_depth_texture ,filter_linear_mipmap;
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
 
 // Albedo texture, modulate and mix
-uniform sampler2D albedo : source_color, hint_default_transparent, repeat_disable, filter_linear_mipmap_anisotropic;
+uniform sampler2D albedo : source_color, hint_default_transparent, repeat_disable, filter_linear;
 uniform vec4 modulate : source_color = vec4(1.0,1.0,1.0,1.0);
 uniform float albedo_mix : hint_range(0.0, 1.0, 0.1) = 1.0;
 
@@ -23,11 +23,18 @@ uniform float fade_start = 0.3; // Where fading begins (0-1)
 uniform float fade_end = 0.7;   // Where fading ends (0-1)
 uniform float fade_power = 1.0; // Curve sharpness
 
+// Flipbook
+uniform bool is_flipbook = false;
+uniform bool is_one_shot = false;
+uniform float time_stamp;
+uniform int x_frames = 5;
+uniform int y_frames = 5;
+uniform float flipbook_speed = 12.0;
+
 void vertex(){
 	INV_MODEL_MATRIX = inverse(MODEL_MATRIX);
 }
 
-// Credit: https://stackoverflow.com/questions/32227283/getting-world-position-from-depth-buffer-value
 vec3 world_pos_from_depth(float depth, vec2 screen_uv, mat4 inverse_proj, mat4 inverse_view) {
 	float z = depth * 2.0 - 1.0;
 	vec4 clipSpacePosition;
@@ -70,6 +77,21 @@ bool checkCameraClippingDecal(mat4 inv_view_matrix, mat4 inv_model_matrix) {
 		(abs(camera_local.z) < cube_half_size.z);
 }
 
+vec2 flipbook(vec2 uv, vec2 size, float progress){
+	if (is_one_shot && progress >= size.x * size.y){
+		return size;
+	}	
+	
+	progress = floor(mod(progress, (size.x * size.y)) );
+	vec2 frame_size = vec2(1.0, 1.0) / vec2(size.x, size.y);
+	vec2 frame = fract(uv / size) + frame_size;
+	
+	frame.x += ( (progress / size.x) - frame_size.x * floor(progress/size.x) * size.x ) - frame_size.x;
+	frame.y += (frame_size.y * floor(progress/size.x) ) - frame_size.y ;
+	
+	return frame;
+}
+
 void fragment() {
 	bool clipped = checkCameraClippingDecal(INV_VIEW_MATRIX, INV_MODEL_MATRIX);
 
@@ -104,6 +126,15 @@ void fragment() {
         }
 	}
 
-	ALBEDO = texture(albedo, NEW_UV).rgb * modulate.rgb * y_fade;
-	ALPHA = texture(albedo, NEW_UV).a * modulate.a * albedo_mix * y_fade;
+	// Flipbook?
+	if (is_flipbook){
+		if (is_one_shot)
+			NEW_UV = flipbook(NEW_UV, vec2(float(x_frames), float(y_frames)), (TIME - time_stamp) * flipbook_speed);
+		else
+			NEW_UV = flipbook(NEW_UV, vec2(float(x_frames), float(y_frames)), TIME * flipbook_speed);
+	}
+
+	vec4 _albedo = texture(albedo, NEW_UV);
+	ALBEDO = _albedo.rgb * modulate.rgb * y_fade;
+	ALPHA = _albedo.a * modulate.a * albedo_mix * y_fade;
 }
