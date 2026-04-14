@@ -29,7 +29,7 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 ![example1](https://github.com/user-attachments/assets/31d0e9cb-f94a-4bd3-972d-3032c1ed8136)
 
 ## Features
-- **`No limits`** like Godot's Decal implementation for Compatibility/Mobile renderers which limits decals to 8 decals per mesh, **AND** 64 decals per frame.  With my solution you can use thousands of decals.
+- **`No limits`** like Godot's Decal implementation for Compatibility/Mobile renderers which limits decals to 8 decals per mesh, **AND** 64 decals per frame.  With my solution you can use thousands of decals **PER MESH**.
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
 - Stencil support, which allows you to exclude specific geometry from recieving decal (such as the player).
 - Decals can be projected onto both floors and walls.
