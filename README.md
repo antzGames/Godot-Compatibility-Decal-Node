@@ -6,7 +6,11 @@ This plugin provides both instanced and non-instanced decal node functionality f
 
 Included Demo scene:
 
-![stencil00](https://github.com/user-attachments/assets/d6378894-f7c8-4d6e-b886-b40d4e918829)
+<img width="962" height="563" alt="demo" src="https://github.com/user-attachments/assets/9e101ea3-d81e-4f6b-8629-647c09d98d33" />
+
+2000 Animated Instanced Skeletons + 1000 pooled Animated Explosions
+
+<img width="962" height="563" alt="flipbook" src="https://github.com/user-attachments/assets/e0078043-5f10-428e-ad0b-6f669a009665" />
 
 1000 instanced decal bullet holes:
 
@@ -68,7 +72,7 @@ Tested on Godot 4.4.1 to 4.6.2.
 - Copy the `addons` directory from the extracted ZIP file into your Godot project's `res://` filesystem.
 - Go to `Project > Project Settings > Plugins` and enable `Decal Compatibility Nodes` plugin as shown below.
 
-![4](https://github.com/user-attachments/assets/8ed3637e-0325-4e5a-adcc-efd98d95bec3)
+<img width="1261" height="306" alt="plugin_enable" src="https://github.com/user-attachments/assets/bc580a39-a8f8-44a4-91b9-798fa359e44c" />
 
 ## New Nodes
 
@@ -76,15 +80,20 @@ Tested on Godot 4.4.1 to 4.6.2.
 
 Use this node if you just need one or two decals.
 
-![2](https://github.com/user-attachments/assets/51fead47-2c6b-4484-aaee-68eceb4aef87)
+<img width="614" height="1025" alt="single" src="https://github.com/user-attachments/assets/a001157f-a21b-46a4-a531-edfb9dd32bce" />
 
 ### DecalInstanceCompatibility
 
 Use this node if you plan to use many copies of the same decal, such as bullet holes.  This allows thousands of decals to be drawn using one draw call. 
 
-`custom_data` is enabled to control the alpha channel per instance, which allows you to control fading of individual decal instances. `custom_data.a` is reserved, but the remaining 3 floats for RGB are available to you.
+`custom_data` is used to modify individual decal instances.
 
-![1](https://github.com/user-attachments/assets/f3a42b19-b25a-406d-8861-ee7369c639ed)
+ - `custom_data.r` = instanced one_shot timestamp
+ - `custom_data.g` = instanced frame offset `[0..(x_frames * y_frames - 1)]`
+ - `custom_data.b` = Not used
+ - `custom_data.a` = instance alpha of decal: use `fade_out_instance(instance_id, fade_out_time, start_delay)`
+
+<img width="609" height="1075" alt="instanced" src="https://github.com/user-attachments/assets/31d8689d-b7c5-42b7-b377-995baff43087" />
 
 ## Using new nodes in your projects
 
