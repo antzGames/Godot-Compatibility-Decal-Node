@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bcjbopus3vin0" path="res://assets/decal_textures/T_fire_flipbook4_sm.png" id="14_3wikd"]
 [ext_resource type="Texture2D" uid="uid://vfenvuoaq8vj" path="res://assets/decal_textures/spryte-walk.png" id="15_m34tk"]
 [ext_resource type="Texture2D" uid="uid://d4cnsoyk0ia3f" path="res://assets/decal_textures/633.png" id="16_xrw6x"]
+[ext_resource type="Texture2D" uid="uid://b7n1yg62iw8bs" path="res://assets/antz_512.png" id="18_o6e2u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6kxbp"]
 
@@ -222,7 +223,7 @@ transform_format = 1
 use_custom_data = true
 instance_count = 10
 mesh = SubResource("BoxMesh_l33fo")
-buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3084, 0, 0, 1)
+buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 615, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l33fo"]
 render_priority = 0
@@ -422,7 +423,6 @@ size = Vector3(2, 0.75, 2)
 texture = ExtResource("7_wn76c")
 modulate = Color(1, 1, 1, 0.788235)
 albedo_mix = 0.7
-is_one_shot = null
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="MovingGodot" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=2002209955]
@@ -434,7 +434,6 @@ Skeleton = null
 script = ExtResource("8_x6wuc")
 texture = ExtResource("7_wn76c")
 albedo_mix = 0.8
-is_one_shot = null
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="SlimeOnFloor" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=167084798]
@@ -445,7 +444,6 @@ Skeleton = null
 script = ExtResource("8_x6wuc")
 size = Vector3(8, 2, 8)
 texture = ExtResource("9_pwpfi")
-is_one_shot = null
 enable_fade = true
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
@@ -460,7 +458,6 @@ size = Vector3(6.4, 2, 3.6)
 texture = ExtResource("10_kyxvf")
 modulate = Color(1, 1, 1, 0.901961)
 albedo_mix = 0.8
-is_one_shot = null
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="MyLogoDistanceFade" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=1641404520]
@@ -475,7 +472,6 @@ size = Vector3(6.4, 1, 3.6)
 texture = ExtResource("10_kyxvf")
 modulate = Color(1, 1, 1, 0.729412)
 albedo_mix = 0.9
-is_one_shot = null
 metadata/_custom_type_script = "uid://feckn7f3pmud"
 
 [node name="Label3D" type="Label3D" parent="CompatibilityDecals/MyLogoDistanceFade" unique_id=1602268222]
@@ -493,7 +489,6 @@ instance_count = 10
 texture = ExtResource("12_qysy6")
 modulate = Color(1, 1, 1, 0.901961)
 albedo_mix = 0.9
-is_one_shot = null
 metadata/_custom_type_script = "uid://bw6heqxc8r4tx"
 
 [node name="GreenGasFlipBook" type="MeshInstance3D" parent="CompatibilityDecals" unique_id=758310647]
@@ -538,7 +533,6 @@ Skeleton = null
 script = ExtResource("8_x6wuc")
 texture = ExtResource("15_m34tk")
 is_flipbook = true
-is_one_shot = null
 x_frames = 5
 y_frames = 5
 flipbook_speed = 15.0
@@ -590,3 +584,19 @@ theme_override_font_sizes/font_size = 48
 [node name="Label" type="Label" parent="UI" unique_id=1859343458]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Logo" type="TextureRect" parent="UI" unique_id=1146613021]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -83.0
+offset_right = -1.0
+offset_bottom = 45.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("18_o6e2u")
+expand_mode = 1

@@ -15,10 +15,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Compatibility Decal"
+config/version="1.2"
 run/main_scene="uid://05pttlflf183"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/image="res://assets/decal_textures/loading.png"
-config/icon="res://assets/antz_512.png"
+config/icon="uid://b7n1yg62iw8bs"
 boot_splash/minimum_display_time=500
 
 [display]
@@ -31,6 +32,14 @@ window/vsync/vsync_mode=0
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/decal_compatibility/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://assets/": "purple",
+"res://demos/": "green"
+}
 
 [input]
 
