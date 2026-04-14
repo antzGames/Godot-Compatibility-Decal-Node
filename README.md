@@ -22,6 +22,28 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 
 ![example1](https://github.com/user-attachments/assets/31d0e9cb-f94a-4bd3-972d-3032c1ed8136)
 
+## Features
+- Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
+- Stencil support, which allows you to exclude specific geometry from recieving decal (such as the player).
+- Decals can be projected onto both floors and walls.
+- Instanced Flipbook animation support, with:
+  - Speed control.
+  - Both `Looping` (the default) and `Oneshot` support.
+  - Easy oneshot reset.
+  - Frame offset support to randomize looping animation.
+- Adds two new nodes to Godot:
+  - `DecalCompatibility` extends MeshInstance3D, which should be used when only one decal is needed.
+  - `DecalInstanceCompatibility` extends MultiMeshInstance3D, which should be used when you need large amounts of the same decal, like bullet holes.
+- No need to modify shaders - fully usable via the Godot editor Inspector.
+- Full transparency support.
+- Easy fading controls with start, end, and power parameters.
+- Individual decal alpha control when using the `DecalInstanceCompatibility` node.
+- Fully documented code.
+- Includes three demo scenes:
+  - `demo.tscn` shows moving, rotating, fading, distance culling, transparency, color modulating, instancing decal examples.
+  - `instanced_flipbook.tscn` shows 2000 instanced animated skulls 1000 oneshot explosions, rendering with just **TWO** draw calls.
+  - `instanced.tscn` shows 1000 instanced bullets rendering with just **ONE** draw call.
+
 ## Limitations
 
 - No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
@@ -31,24 +53,7 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 
 As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile renderers, but it is strongly recommended that you use Godot's built-in `Decal` node when targeting those renderers.
 
-Tested on Godot 4.4.1 to 4.6.1.
-
-## Features
-- Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
-- Stencil support, which allows you to exclude specific geometry from recieving decal (such as the player).
-- Decals can be projected onto both floors and walls.
-- Flipbook animation support, with speed control.
-- Adds two new nodes to Godot:
-  - `DecalCompatibility` extends MeshInstance3D, which should be used when only one decal is needed.
-  - `DecalInstanceCompatibility` extends MultiMeshInstance3D, which should be used when you need large amounts of the same decal, like bullet holes.
-- No need to modify shaders—fully usable via the Godot editor Inspector.
-- Full transparency support.
-- Easy fading controls with start, end, and power parameters.
-- Individual decal alpha control when using the `DecalInstanceCompatibility` node.
-- Fully documented code.
-- Includes two demo scenes:
-  - `Demo.tscn` shows moving, rotating, fading, distance culling, transparency, color modulating, instancing decal examples.
-  - `Instanced.tscn` shows 1000 instanced bullets rendering with just **ONE** draw call.
+Tested on Godot 4.4.1 to 4.6.2.
 
 ## Installing
 
@@ -110,7 +115,3 @@ The demos show the result below:
 
 <img width="1237" height="1252" alt="stencil3" src="https://github.com/user-attachments/assets/e9cb770b-1afc-4bb4-bb55-598400e790ed" />
 <img width="2617" height="918" alt="stencil2" src="https://github.com/user-attachments/assets/8f7618dd-b1e0-4df6-9108-bd926cc32ec2" />
-
-## Planned Features
-
-- Flipbook animation support for animated decals.
