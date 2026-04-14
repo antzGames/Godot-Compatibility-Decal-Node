@@ -1,5 +1,5 @@
-# Compatibility Decal Node Plugin for Godot 4
-This plugin provides both instanced and non-instanced decal node functionality for the Compatibility Renderer in Godot 4.4-4.6, packaged as an easy-to-use plugin.
+# Animated Decal Node for all Godot 4 Renderers
+This plugin provides both instanced and non-instanced animated decal node functionality for all Renderers in Godot 4.4-4.6, packaged as an easy-to-use plugin.
 
 Allows thousands of decals to be drawn with one draw call and performs well.  No limits set, unlike Godot's Compatibility/Mobile Decal limits of Max 8 decals per surface and max 64 decals per frame.
 
