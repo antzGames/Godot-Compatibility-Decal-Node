@@ -40,9 +40,9 @@ Included Demo scene:
 - Fully documented code.
 - Includes three demo scenes:
   - `demo.tscn` shows all the features of the plugin:
-   - moving, rotating, fading, distance culling, transparency, color modulating of decals.
-   - instancing decal (bullet holes)
-   - both one_shot and lopping decal animations
+	- moving, rotating, fading, distance culling, transparency, color modulating of decals.
+	- instancing decal (bullet holes)
+	- both one_shot and lopping decal animations
   - `instanced_flipbook.tscn` shows 2000 instanced animated skulls, and 1000 oneshot explosions, rendering with just **TWO** draw calls.
   - `instanced.tscn` shows 1000 instanced bullets rendering with just **ONE** draw call.
 
