@@ -52,6 +52,20 @@ As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile
 
 Tested on Godot 4.4.1 to 4.6.2.
 
+## Limitation analysis of Godot's built in Decals 
+
+| Decal Implementation | Decal per mesh | Decal per frame | Animation Support | PBR Shaded | Cull Mask / Stencil Support |
+| --- | --- | --- | --- | --- | --- |
+| Godot's Forward+ Decal | Unlimited | Default limit of 512 clustered elements  | No | Yes | Cull mask |
+| Godot's Mobile Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
+| Godot's Compatibility Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
+| **This plugin** | Unlimited | Unlimited  | Yes | No | Stencil Support |
+
+Summary:
+ - if QUANTITY of decals important = use this plugin.
+ - if ANIMATION of decals important = use this plugin.
+ - if PBR QUALITY of decals important - use Godot's default Decal nodes.
+
 ## Installing
 
 **Option 1**: Use as a project template:
@@ -117,20 +131,6 @@ The demos show the result below:
 
 <img width="1237" height="1252" alt="stencil3" src="https://github.com/user-attachments/assets/e9cb770b-1afc-4bb4-bb55-598400e790ed" />
 <img width="2617" height="918" alt="stencil2" src="https://github.com/user-attachments/assets/8f7618dd-b1e0-4df6-9108-bd926cc32ec2" />
-
-## Limitation analysis of Godot's built in Decals 
-
-| Decal Implementation | Decal per mesh | Decal per frame | Animation Support | PBR Shaded | Cull Mask / Stencil Support |
-| --- | --- | --- | --- | --- | --- |
-| Godot's Forward+ Decal | Unlimited | Default limit of 512 clustered elements  | No | Yes | Cull mask |
-| Godot's Mobile Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
-| Godot's Compatibility Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
-| **This plugin** | Unlimited | Unlimited  | Yes | No | Stencil Support |
-
-Summary:
- - if QUANTITY of decals important = use this plugin.
- - if ANIMATION of decals important = use this plugin.
- - if PBR QUALITY of decals important - use Godot's default Decal nodes.
 
 ## YouTube Tutorial and Examples
 
