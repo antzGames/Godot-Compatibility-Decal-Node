@@ -125,7 +125,12 @@ The demos show the result below:
 | Godot's Forward+ Decal | Unlimited | Default limit of 512 clustered elements  | No | Yes | Cull mask |
 | Godot's Mobile Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
 | Godot's Compatibility Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
-| ***This plugin*** | Unlimited | Unlimited  | Yes | No | Stencil Support |
+| **This plugin** | Unlimited | Unlimited  | Yes | No | Stencil Support |
+
+Summary:
+ - if QUANTITY of decals important = use this plugin.
+ - if ANIMATION of decals important = use this plugin.
+ - if PBR QUALITY of decals important - use Godot's default Decal nodes.
 
 ## YouTube Tutorial and Examples
 
