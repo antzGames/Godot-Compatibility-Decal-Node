@@ -52,7 +52,7 @@ As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile
 
 Tested on Godot 4.4.1 to 4.6.2.
 
-## Limitation analysis of Godot's built in Decals 
+## Limitation analysis of Godot's built in Decals nodes
 
 | Decal Implementation | Decal per mesh | Decal per frame | Animation Support | PBR Shaded | Cull Mask / Stencil Support |
 | --- | --- | --- | --- | --- | --- |
@@ -64,7 +64,7 @@ Tested on Godot 4.4.1 to 4.6.2.
 Summary:
  - if QUANTITY of decals important = use this plugin.
  - if ANIMATION of decals important = use this plugin.
- - if PBR QUALITY of decals important - use Godot's default Decal nodes.
+ - if PBR QUALITY of decals important = use Godot's default Decal nodes.
 
 ## Installing
 
