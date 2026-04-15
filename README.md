@@ -122,10 +122,10 @@ The demos show the result below:
 
 | Decal Implementation | Decal per mesh | Decal per frame | Animation Support | PBR Shaded | Cull Mask / Stencil Support |
 | --- | --- | --- | --- | --- | --- |
-| Godot's Forward+ Decal | Unlimited | default limit of 512 clustered elements  | No | Yes | Cull mask |
-| Godot's Mobile Decal | 8 | default limit of 64  | No | Yes | Cull mask |
-| Godot's Compatibility Decal | 8 | default limit of 64  | No | Yes | Cull mask |
-| This plugin | Unlimited | Unlimited  | Yes | No | Stencil Support |
+| Godot's Forward+ Decal | Unlimited | Default limit of 512 clustered elements  | No | Yes | Cull mask |
+| Godot's Mobile Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
+| Godot's Compatibility Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
+| ***This plugin*** | Unlimited | Unlimited  | Yes | No | Stencil Support |
 
 ## YouTube Tutorial and Examples
 
