@@ -31,8 +31,8 @@ Included Demo scene:
   - Easy oneshot reset.
   - Frame offset support to randomize looping animation.
 - Adds two new nodes to Godot:
-  - `DecalCompatibility` extends MeshInstance3D, which should be used when only one decal is needed.
-  - `DecalInstanceCompatibility` extends MultiMeshInstance3D, which should be used when you need large amounts of the same decal, like bullet holes.
+  - `DecalCompatibility` extends `MeshInstance3D`, which should be used when only one decal is needed.
+  - `DecalInstanceCompatibility` extends `MultiMeshInstance3D`, which should be used when you need large amounts of the same decal, like bullet holes.
 - No need to modify shaders - fully usable via the Godot editor Inspector.
 - Full transparency support.
 - Easy fading controls with start, end, and power parameters.
@@ -41,8 +41,8 @@ Included Demo scene:
 - Includes three demo scenes:
   - `demo.tscn` shows all the features of the plugin:
 	- moving, rotating, fading, distance culling, transparency, color modulating of decals.
-	- instancing decal (bullet holes)
-	- both one_shot and lopping decal animations
+	- instancing decals (bullet holes).
+	- both one_shot and looping decal animations.
   - `instanced_flipbook.tscn` shows 2000 instanced animated skulls, and 1000 oneshot explosions, rendering with just **TWO** draw calls.
   - `instanced.tscn` shows 1000 instanced bullets rendering with just **ONE** draw call.
 
