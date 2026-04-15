@@ -10,7 +10,7 @@ Included Demo scene:
 
 <img width="962" height="563" alt="demo" src="https://github.com/user-attachments/assets/9e101ea3-d81e-4f6b-8629-647c09d98d33" />
 
-2000 Animated Instanced Skeletons + 1000 pooled Animated Explosions
+2000 Animated Instanced Skull Decals + 1000 pooled Animated Explosions Decals
 
 <img width="962" height="563" alt="flipbook" src="https://github.com/user-attachments/assets/e0078043-5f10-428e-ad0b-6f669a009665" />
 
