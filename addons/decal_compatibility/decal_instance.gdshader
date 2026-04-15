@@ -45,7 +45,6 @@ void vertex(){
 	custom_data = INSTANCE_CUSTOM;
 }
 
-// Credit: https://stackoverflow.com/questions/32227283/getting-world-position-from-depth-buffer-value
 vec3 world_pos_from_depth(float depth, vec2 screen_uv, mat4 inverse_proj, mat4 inverse_view) {
 	float z = depth * 2.0 - 1.0;
 	vec4 clipSpacePosition;

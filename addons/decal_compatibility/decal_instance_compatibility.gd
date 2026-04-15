@@ -221,6 +221,8 @@ func _validate_property(property: Dictionary) -> void:
 	#else:
 		#print(property)
 
+## Restarts the one shot animation for a specific instance_id.[br][br]
+## Only valid if [is_one_shot] is true
 func reset_one_shot(instance_id: int):
 	if !is_one_shot: return
 	

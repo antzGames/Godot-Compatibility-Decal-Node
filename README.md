@@ -1,16 +1,18 @@
 # Animated Decal Node for all Godot 4 Renderers
 This plugin provides both instanced and non-instanced animated decal node functionality for all Renderers in Godot 4.4-4.6, packaged as an easy-to-use plugin.
 
-Allows thousands of decals to be drawn with one draw call and performs well.  No limits set, unlike Godot's Compatibility/Mobile Decal limits of Max 8 decals per surface and max 64 decals per frame.
+Allows thousands of decals to be drawn with one draw call and performs well.  No limits set, unlike Godot's Compatibility/Mobile Decal limits of Max 8 decals per mesh and max 64 decals per frame.
 
 > [!IMPORTANT]  
-> There is currently a PR to get Decal support for the Compatibility Renderer, with the same support as the Mobile renderer (Max 8 decals per surface, max 64 decals per frame): https://github.com/godotengine/godot/pull/118070 which will close https://github.com/godotengine/godot-proposals/discussions/12903 which I actively was trying to push.  If you need to project thousands of decals on a mesh, then my solution is a good option.
+> There is currently a [PR](https://github.com/godotengine/godot/pull/118070) to get Decal support for the Compatibility Renderer,
+> with the same support as the Mobile renderer (Max 8 decals per surface, max 64 decals per frame).
+> If you need to use hundreds or thousands of decals on a single mesh, then my solution is a very good option.
 
 Included Demo scene:
 
 <img width="962" height="563" alt="demo" src="https://github.com/user-attachments/assets/9e101ea3-d81e-4f6b-8629-647c09d98d33" />
 
-2000 Animated Instanced Skull Decals + 1000 pooled Animated Explosions Decals
+2000 Animated Instanced Skull Decals + 1000 pooled one shot Animated Explosions Decals
 
 <img width="962" height="563" alt="flipbook" src="https://github.com/user-attachments/assets/e0078043-5f10-428e-ad0b-6f669a009665" />
 
@@ -18,22 +20,12 @@ Included Demo scene:
 
 ![stencil0](https://github.com/user-attachments/assets/ed0e4cd9-2a2e-4e97-bb2a-eb97605ce32e)
 
-## YouTube Tutorial and Examples
-
-See the first tutorial at: https://youtu.be/8_vL1B_J56I
-
-See the demos in action and more information: https://youtu.be/8XnH3mT1C-c
-
-Example game using this plugin: https://antzgames.itch.io/little-mage
-
-![example1](https://github.com/user-attachments/assets/31d0e9cb-f94a-4bd3-972d-3032c1ed8136)
-
 ## Features
 - **`No limits`** like Godot's Decal implementation for Compatibility/Mobile renderers which limits decals to 8 decals per mesh, **AND** 64 decals per frame.  With my solution you can use thousands of decals **PER MESH**.
 - Projects decals onto uneven surfaces (e.g., terrain or complex geometry).
 - Stencil support, which allows you to exclude specific geometry from recieving decal (such as the player).
 - Decals can be projected onto both floors and walls.
-- Instanced Flipbook animation support, with:
+- Instanced Flipbook `animation` support, with:
   - Speed control.
   - Both `Looping` (the default) and `Oneshot` support.
   - Easy oneshot reset.
@@ -48,7 +40,7 @@ Example game using this plugin: https://antzgames.itch.io/little-mage
 - Fully documented code.
 - Includes three demo scenes:
   - `demo.tscn` shows moving, rotating, fading, distance culling, transparency, color modulating, instancing decal examples.
-  - `instanced_flipbook.tscn` shows 2000 instanced animated skulls 1000 oneshot explosions, rendering with just **TWO** draw calls.
+  - `instanced_flipbook.tscn` shows 2000 instanced animated skulls, and 1000 oneshot explosions, rendering with just **TWO** draw calls.
   - `instanced.tscn` shows 1000 instanced bullets rendering with just **ONE** draw call.
 
 ## Limitations
@@ -125,3 +117,26 @@ The demos show the result below:
 
 <img width="1237" height="1252" alt="stencil3" src="https://github.com/user-attachments/assets/e9cb770b-1afc-4bb4-bb55-598400e790ed" />
 <img width="2617" height="918" alt="stencil2" src="https://github.com/user-attachments/assets/8f7618dd-b1e0-4df6-9108-bd926cc32ec2" />
+
+## Limitation analysis of Godot's built in Decals 
+
+| Decal Implementation | Decal per mesh | Decal per frame | Animation Support | PBR Shaded | Cull Mask / Stencil Support |
+| --- | --- | --- | --- | --- | --- |
+
+## YouTube Tutorial and Examples
+
+See the first tutorial at: https://youtu.be/8_vL1B_J56I
+
+See the demos in action and more information: https://youtu.be/8XnH3mT1C-c
+
+Example game using this plugin: https://antzgames.itch.io/little-mage
+
+![Decal Example](https://github.com/user-attachments/assets/31d0e9cb-f94a-4bd3-972d-3032c1ed8136)
+
+## Asset Attributions
+
+[Skeleton](https://kaylousberg.itch.io/kaykit-skeletons) and [Mage](https://kaylousberg.itch.io/kaykit-adventurers) by Kay Lousberg - [CC0 License](http://creativecommons.org/publicdomain/zero/1.0/)
+
+[Floor Tile](https://kenney.nl/assets/prototype-textures) by Kenney - [CC0 License](http://creativecommons.org/publicdomain/zero/1.0/)
+
+[Spryte](https://www.autosprite.io/free) free spritesheets by AutoSprite - "Meet Spryte, our mascot. Download and use in your game."

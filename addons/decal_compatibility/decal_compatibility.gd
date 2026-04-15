@@ -181,6 +181,8 @@ func fade_in_instance(fade_in_time: float = 1.0, start_delay: float = 0.0):
 func _do_tween_fade(value: float):
 	modulate.a = value
 
+## Restarts the one shot animation.[br][br]
+## Only valid if [is_one_shot] is true
 func reset_one_shot():
 	if !is_one_shot: return
 	mesh.material.set_shader_parameter("time_stamp", get_current_timestamp())
