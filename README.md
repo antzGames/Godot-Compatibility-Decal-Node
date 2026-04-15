@@ -39,7 +39,10 @@ Included Demo scene:
 - Individual decal alpha control when using the `DecalInstanceCompatibility` node.
 - Fully documented code.
 - Includes three demo scenes:
-  - `demo.tscn` shows moving, rotating, fading, distance culling, transparency, color modulating, instancing decal examples.
+  - `demo.tscn` shows all the features of the plugin:
+   - moving, rotating, fading, distance culling, transparency, color modulating of decals.
+   - instancing decal (bullet holes)
+   - both one_shot and lopping decal animations
   - `instanced_flipbook.tscn` shows 2000 instanced animated skulls, and 1000 oneshot explosions, rendering with just **TWO** draw calls.
   - `instanced.tscn` shows 1000 instanced bullets rendering with just **ONE** draw call.
 
@@ -48,7 +51,7 @@ Included Demo scene:
 - No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
 - Decals are unshaded (no lighting interaction).
 
-As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile renderers, but it is strongly recommended that you use Godot's built-in `Decal` node when targeting the Forward+ renderer.  As for the Mobile renderer, Godot's official Decal implementation might be too restrictive for your project, so you might want to try this implementation.
+As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile renderers.
 
 Tested on Godot 4.4.1 to 4.6.2.
 
