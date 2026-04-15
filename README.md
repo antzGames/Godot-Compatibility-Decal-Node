@@ -57,7 +57,7 @@ Tested on Godot 4.4.1 to 4.6.2.
 
 ## Limitation analysis of Godot's built in Decals nodes
 
-| Decal Implementation | Decal per mesh | Decal per frame | Animation Support | PBR Shaded | Cull Mask / Stencil Support |
+| Decal Implementation | Decals per mesh | Decals per frame | Animation Support | PBR Shaded | Cull Mask / Stencil Support |
 | --- | --- | --- | --- | --- | --- |
 | Godot's Forward+ Decal | Unlimited | Default limit of 512 clustered elements  | No | Yes | Cull mask |
 | Godot's Mobile Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
