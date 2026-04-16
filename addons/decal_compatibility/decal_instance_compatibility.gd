@@ -166,7 +166,7 @@ func fade_out_instance(instance_id: int, fade_out_time: float = 1.0, start_delay
 	if instance_id >= multimesh.instance_count: return
 	
 	var custom_data: Color = multimesh.get_instance_custom_data(instance_id)
-	if custom_data.a < 0: return
+	if custom_data.a <= 0: return
 	
 	var fade_tween = create_tween()
 	fade_tween.tween_method(
@@ -174,6 +174,24 @@ func fade_out_instance(instance_id: int, fade_out_time: float = 1.0, start_delay
 		multimesh.get_instance_custom_data(instance_id).a,
 		0,
 		fade_out_time).set_delay(start_delay)
+
+## Fade in a specific instance.[br][br]
+## [param instance_id] is the specific instance to fade in.[br]
+## [param fade_out_time] the duration of the fade.[br]
+## [param start_delay] is the delay before fade starts.
+func fade_in_instance(instance_id: int, fade_in_time: float = 1.0, start_delay: float = 0.0):
+	if fade_in_time < 0: return
+	if instance_id >= multimesh.instance_count: return
+
+	var custom_data: Color = multimesh.get_instance_custom_data(instance_id)
+	if custom_data.a >= 1: return
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_method(
+		_do_tween_fade.bind(instance_id),
+		multimesh.get_instance_custom_data(instance_id).a,
+		1,
+		fade_in_time).set_delay(start_delay)
 
 func _do_tween_fade(value: float, id: int):
 	var custom_data: Color = multimesh.get_instance_custom_data(id)

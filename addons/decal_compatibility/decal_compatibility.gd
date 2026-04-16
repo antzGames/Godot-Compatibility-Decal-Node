@@ -173,7 +173,7 @@ func fade_out_instance(fade_out_time: float = 1.0, start_delay: float = 0.0):
 ## [param start_delay] is the delay before fade starts.
 func fade_in_instance(fade_in_time: float = 1.0, start_delay: float = 0.0):
 	if fade_in_time < 0: return
-	if modulate.a > 1: return
+	if modulate.a >= 1: return
 	
 	var fade_tween = create_tween()
 	fade_tween.tween_method(_do_tween_fade.bind(), modulate.a, 1, fade_in_time).set_delay(start_delay)
