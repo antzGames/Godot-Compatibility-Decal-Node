@@ -40,9 +40,9 @@ Included Demo scene:
 - Fully documented code.
 - Includes three demo scenes:
   - `demo.tscn` shows all the features of the plugin:
-	- moving, rotating, fading, distance culling, transparency, color modulating of decals.
-	- instancing decals (bullet holes).
-	- both one_shot and looping decal animations.
+	- Decals that are moving, rotating, height fading, distance culling, transparency, color modulating.
+	- Instanced decals (bullet holes).
+	- Both one_shot and looping decal animations.
   - `instanced_flipbook.tscn` shows 2000 instanced animated skulls, and 1000 oneshot explosions, rendering with just **TWO** draw calls.
   - `instanced.tscn` shows 1000 instanced bullets rendering with just **ONE** draw call.
 
@@ -56,6 +56,8 @@ As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile
 Tested on Godot 4.4.1 to 4.6.2.
 
 ## Limitation analysis of Godot's built in Decals nodes
+
+From Godot official [documentation](https://docs.godotengine.org/en/stable/tutorials/3d/using_decals.html#limitations):
 
 | Decal Implementation | Decals per mesh | Decals per frame | Animation Support | PBR Shaded | Cull Mask / Stencil Support |
 | --- | --- | --- | --- | --- | --- |
