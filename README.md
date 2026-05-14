@@ -49,6 +49,7 @@ Included Demo scene:
 ## Limitations
 
 - No support for normal maps, ambient occlusion, roughness, metallic, or emission textures.
+- can only project decals on fully opaque materials (no alpha or semi-transparent materials)
 - Decals are unshaded (no lighting interaction).
 
 As of V1.1 of the plugin, you can now use the plugin with the Forward+ or Mobile renderers.
