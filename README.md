@@ -102,7 +102,7 @@ Use this node if you plan to use many copies of the same decal, such as bullet h
 `custom_data` is used to modify individual decal instances.
 
  - `custom_data.r` = instanced one_shot timestamp
- - `custom_data.g` = instanced frame offset `[0..(x_frames * y_frames - 1)]`
+ - `custom_data.g` = in es * y_frames - 1)]`
  - `custom_data.b` = Not used
  - `custom_data.a` = instance alpha of decal: use `fade_out_instance(instance_id, fade_out_time, start_delay)`
 
