@@ -4,8 +4,8 @@ This plugin provides both instanced and non-instanced animated decal node functi
 Allows thousands of decals to be drawn with one draw call and performs well.  No limits set, unlike Godot's Compatibility/Mobile Decal limits of Max 8 decals per mesh and max 64 decals per frame.
 
 > [!IMPORTANT]  
-> The Decal support for the Compatibility Renderer has been merged [PR](https://github.com/godotengine/godot/pull/118070),
-> with the same support as the Mobile renderer (Max 8 decals per surface, max 64 decals per frame).
+> The [PR](https://github.com/godotengine/godot/pull/118070) to support the Decal Node for the Compatibility Renderer has been merged,
+> with the same support as the Mobile renderer (Max 8 decals per surface, max 64 decals per frame).  It should be available when Godot 4.8 launches.
 > If you need to use hundreds or thousands of decals on a single mesh, then my solution is a very good option.
 
 Included Demo scene:
