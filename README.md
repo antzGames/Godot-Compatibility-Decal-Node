@@ -4,7 +4,7 @@ This plugin provides both instanced and non-instanced animated decal node functi
 Allows thousands of decals to be drawn with one draw call and performs well.  No limits set, unlike Godot's Compatibility/Mobile Decal limits of Max 8 decals per mesh and max 64 decals per frame.
 
 > [!IMPORTANT]  
-> There is currently a [PR](https://github.com/godotengine/godot/pull/118070) to get Decal support for the Compatibility Renderer,
+> The Decal support for the Compatibility Renderer has been merged [PR](https://github.com/godotengine/godot/pull/118070),
 > with the same support as the Mobile renderer (Max 8 decals per surface, max 64 decals per frame).
 > If you need to use hundreds or thousands of decals on a single mesh, then my solution is a very good option.
 
@@ -62,9 +62,9 @@ From Godot official [documentation](https://docs.godotengine.org/en/stable/tutor
 
 | Decal Implementation | Decals per mesh | Decals per frame | Animation Support | PBR Shaded | Cull Mask / Stencil Support |
 | --- | --- | --- | --- | --- | --- |
-| Godot's Forward+ Decal | Unlimited | Default limit of 512 clustered elements  | No | Yes | Cull mask |
-| Godot's Mobile Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
-| Godot's Compatibility Decal | 8 | Default limit of 64  | No | Yes | Cull mask |
+| Godot's Forward+ Decal | Unlimited | Default limit of 512 clustered elements  | Yes | Yes | Cull mask |
+| Godot's Mobile Decal | 8 | Default limit of 64  | Yes | Yes | Cull mask |
+| Godot's Compatibility Decal | 8 | Default limit of 64  | Yes | Yes | Cull mask |
 | **This plugin** | Unlimited | Unlimited  | Yes | No | Stencil Support |
 
 Summary:
