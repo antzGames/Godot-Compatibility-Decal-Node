@@ -69,7 +69,7 @@ From Godot official [documentation](https://docs.godotengine.org/en/stable/tutor
 
 Summary:
  - if QUANTITY of decals important = use this plugin.
- - if ANIMATION of decals important = use this plugin.
+ - if ANIMATION of decals important = use Godot's default Decal nodes.
  - if PBR QUALITY of decals important = use Godot's default Decal nodes.
  - if projecting decals on semi-transparent materials = use Godot's default Decal nodes.
 
