@@ -34,7 +34,7 @@ Included Demo scene:
   - `DecalCompatibility` extends `MeshInstance3D`, which should be used when only one decal is needed.
   - `DecalInstanceCompatibility` extends `MultiMeshInstance3D`, which should be used when you need large amounts of the same decal, like bullet holes.
 - No need to modify shaders - fully usable via the Godot editor Inspector.
-- Full transparency support.
+- Full transparency support of the decal, but cannot project on semi-transparent geometry, only opaque geometry.
 - Easy fading controls with start, end, and power parameters.
 - Individual decal alpha control when using the `DecalInstanceCompatibility` node.
 - Fully documented code.
