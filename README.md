@@ -73,6 +73,10 @@ Summary:
  - if PBR QUALITY of decals important = use Godot's default Decal nodes.
  - if projecting decals on semi-transparent materials = use Godot's default Decal nodes.
 
+## Try to do this on the offical Godot Decal Node using the Compatibility Renderer!
+
+https://github.com/user-attachments/assets/65baf898-8b2a-42cf-9b2e-d789fb8d3fa2
+
 ## Installing
 
 **Option 1**: Use as a project template:
