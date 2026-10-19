@@ -67,6 +67,8 @@ From Godot official [documentation](https://docs.godotengine.org/en/stable/tutor
 | Godot's Compatibility Decal | 8 | Default limit of 64  | Yes | Yes | Cull mask |
 | **This plugin** | Unlimited | Unlimited  | Yes | No | Stencil Support |
 
+Video explaining limitations of Mobile/Compatibility decals: https://youtu.be/mcV4-2ymtlU
+
 Summary:
  - if QUANTITY of decals important = use this plugin.
  - if ANIMATION of decals important = use Godot's default Decal nodes.
